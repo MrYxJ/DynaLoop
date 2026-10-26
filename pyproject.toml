@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dynaloop-kv"
+version = "0.1.0"
+description = "Dynamic, adaptive per-(loop, layer) KV cache budgets for looped (recurrent-depth) LLMs"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "DynaLoop authors" }]
+keywords = ["kv-cache", "looped-transformer", "recurrent-depth", "llm", "memory-efficiency"]
+dependencies = [
+    "torch>=2.1",
+    "transformers>=4.40",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "pyarrow>=14.0",
+    "accelerate>=0.28",
+]
+
+[project.optional-dependencies]
+figures = ["matplotlib>=3.7"]
+
+[tool.setuptools]
+packages = ["dynaloop", "dynaloop.eval"]
+
+[tool.setuptools.package-data]
+dynaloop = ["py.typed"]

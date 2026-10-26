@@ -1,0 +1,8 @@
+# Keep line endings stable across OSes.
+* text=auto eol=lf
+
+# Binary artefacts — never let git try to diff them as text.
+*.parquet binary
+*.npz binary
+*.png binary
+*.pkl binary

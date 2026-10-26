@@ -1,0 +1,108 @@
+{
+  "protocol": {
+    "prefill": "3 runs, median, cuda-sync",
+    "decode": "3 warm-up + mean over 16 steps",
+    "batch": 1,
+    "steps": 16,
+    "js_kappa": 0.5,
+    "js_gamma": 1.0,
+    "js_floor": 0.1
+  },
+  "fullkv_bytes_per_token": 786432,
+  "cells": {
+    "1024": {
+      "fullkv": {
+        "status": "ok",
+        "prefill_reps": 3,
+        "prefill_s": 1.3348,
+        "decode_ms": 510.63,
+        "kv_MiB": 638.25,
+        "kv_tokens": 81696,
+        "retention": 1.0,
+        "ctx_tokens": 851
+      },
+      "dynaloop": {
+        "status": "ok",
+        "prefill_reps": 3,
+        "prefill_s": 2.2116,
+        "decode_ms": 570.3,
+        "kv_MiB": 286.78,
+        "kv_tokens": 36708,
+        "retention": 0.4493,
+        "ctx_tokens": 851
+      }
+    },
+    "2048": {
+      "fullkv": {
+        "status": "ok",
+        "prefill_reps": 3,
+        "prefill_s": 2.8446,
+        "decode_ms": 551.37,
+        "kv_MiB": 1275.75,
+        "kv_tokens": 163296,
+        "retention": 1.0,
+        "ctx_tokens": 1701
+      },
+      "dynaloop": {
+        "status": "ok",
+        "prefill_reps": 3,
+        "prefill_s": 3.9448,
+        "decode_ms": 553.87,
+        "kv_MiB": 545.11,
+        "kv_tokens": 69774,
+        "retention": 0.4273,
+        "ctx_tokens": 1701
+      }
+    },
+    "4096": {
+      "fullkv": {
+        "status": "ok",
+        "prefill_reps": 3,
+        "prefill_s": 18.6023,
+        "decode_ms": 548.98,
+        "kv_MiB": 2558.25,
+        "kv_tokens": 327456,
+        "retention": 1.0,
+        "ctx_tokens": 3411
+      },
+      "dynaloop": {
+        "status": "ok",
+        "prefill_reps": 3,
+        "prefill_s": 8.9722,
+        "decode_ms": 595.47,
+        "kv_MiB": 1069.27,
+        "kv_tokens": 136867,
+        "retention": 0.418,
+        "ctx_tokens": 3411
+      }
+    },
+    "8192": {
+      "fullkv": {
+        "status": "OOM",
+        "kv_MiB_analytic": 6144.0
+      },
+      "dynaloop": {
+        "status": "OOM"
+      }
+    },
+    "16384": {
+      "fullkv": {
+        "status": "OOM",
+        "kv_MiB_analytic": 12288.0
+      },
+      "dynaloop": {
+        "status": "OOM"
+      }
+    },
+    "32768": {
+      "fullkv": {
+        "status": "OOM",
+        "kv_MiB_analytic": 24576.0
+      },
+      "dynaloop": {
+        "status": "OOM"
+      }
+    }
+  },
+  "note_oom": "prefill materialises [16,S,S] fp32 attention probs; peak > 8 GB VRAM beyond 4K -> allocator thrash, timings invalid. 8K/16K/32K reported as OOM: KV analytic (exact), latency extrapolated."
+}

@@ -1,0 +1,530 @@
+{
+  "harness": "lm-eval==0.4.13 (EleutherAI LM Harness)",
+  "mode": "full",
+  "config": "DynaLoop(K=2, rho=0.55, ws=64, b_min=0.05, m=6, c=1, decay=1.0, min_prompt=256)",
+  "model": "D:/Code/models/Ouro-1.4B",
+  "n": 100,
+  "nshot": 6,
+  "seed": 42,
+  "target_prompt_tokens": 1000,
+  "gen_toks": 512,
+  "batch": 4,
+  "max_gen_toks": 512,
+  "wall_s": 5556.3,
+  "peak_mem_GiB": 7.895,
+  "kv_MiB_per_sample": 863.4,
+  "decode_ms_per_step": 423.6,
+  "results": {
+    "gsm8k_local": {
+      "name": "gsm8k_local",
+      "alias": "gsm8k_local",
+      "sample_len": 100,
+      "exact_match,none": 0.77,
+      "exact_match_stderr,none": 0.042295258468165065
+    }
+  },
+  "samples": {
+    "gsm8k_local": [
+      {
+        "gold": "18",
+        "ok": false,
+        "out": "Let x be the number of vacuum cleaners Melanie started with.\nShe sold 1/3 of x at the green house, so she has 2/3 of x left.\nShe sold 2 more to the red house, so she has 2/3 of x - 2 left.\nShe sold half of what was left at the orange house, so she has 1/2 of (2/3 of x - 2) left.\nWe know that she has 5 vacuum cleaners left, so we can set up the equation:\n1/2 of (2/3 of x - 2) = 5\nSolving for x, we "
+      },
+      {
+        "gold": "5",
+        "ok": true,
+        "out": "Tom's ship can travel at 10 miles per hour.\nHe is sailing from 1 to 4 PM, which is a total of 3 hours.\nSo he travels 10*3=30 miles.\nHe then travels back at a rate of 6 mph.\nSo it takes him 30/6=5 hours to get back.\nThe answer is 5.\n"
+      },
+      {
+        "gold": "40",
+        "ok": false,
+        "out": "Patchy has had 3*7=21 kittens\nTrixie has had 12 kittens\nSo the total number of kittens is 21+12=33\nThe answer is 33.\n"
+      },
+      {
+        "gold": "1430",
+        "ok": false,
+        "out": "The cost of the material is $500.\nThe cost of the jeweler is $800.\nThe cost of the insurance is 10% of $800, which is 0.1 * 800 = $80.\nSo the total cost is 500 + 800 + 80 = $1380.\nThe answer is 1380.\n"
+      },
+      {
+        "gold": "36",
+        "ok": true,
+        "out": "Jim spends 2 hours watching TV and then reads for 2/2=1 hour.\nSo he spends 2+1=3 hours on TV and reading each time he does it.\nHe does this 3 times a week, so he spends 3*3=9 hours on TV and reading each week.\nIn 4 weeks, he spends 9*4=36 hours on TV and reading.\nThe answer is 36.\n"
+      },
+      {
+        "gold": "8000",
+        "ok": true,
+        "out": "Let x be the number of copies Harald sold.\nThen Marilyn sold 10x copies.\nTogether they sold 88,000 copies, so x + 10x = 88,000.\nCombining like terms, we get 11x = 88,000.\nDividing both sides by 11, we get x = 8,000.\nSo Harald sold 8,000 copies.\nThe answer is 8000.\n"
+      },
+      {
+        "gold": "36",
+        "ok": false,
+        "out": "Lee runs the 400-meter hurdles in 38 seconds.\nGerald runs the 400-meter hurdles in 38-2=36 seconds.\nGerald's speed improved by 10%, so he can now run the 400-meter hurdles in 36/1.1=32.727272727272727 seconds.\nThe answer is 32.727272727272727.\n"
+      },
+      {
+        "gold": "6",
+        "ok": true,
+        "out": "Jamal's phone can hold 1800 photographs.\nBrittany's phone can hold 1800/6=300 photographs.\nThe maximum number of photographs that Brittany's phone can hold is 50 times more than the number of birds in Jamal's photograph of the ducks at the zoo.\nSo the number of birds in Jamal's photograph of the ducks at the zoo is 300/50=6.\nThe answer is 6.\n"
+      },
+      {
+        "gold": "40",
+        "ok": true,
+        "out": "Brian has 20-5=15 video games\nBobby has 3*15-5=40 video games\nThe answer is 40.\n"
+      },
+      {
+        "gold": "140",
+        "ok": true,
+        "out": "Jordan earns 10*2=$20 per day\nSo in one week, he would earn 20*7=$140\nThe answer is 140.\n"
+      },
+      {
+        "gold": "2125",
+        "ok": true,
+        "out": "The second box has 3 * 500 = 1500 pieces.\nThe third box has 500 / 4 = 125 pieces.\nSo Johnny picks up 500 + 1500 + 125 = 2125 pieces.\nThe answer is 2125.\n"
+      },
+      {
+        "gold": "32",
+        "ok": true,
+        "out": "Anakin caught 10 starfish, 6 sea horses, and 3 clownfish.\nLocsin caught 10-5=5 starfish, 6-3=3 sea horses, and 3+2=5 clownfish.\nSo in total they caught 10+6+3+5+3+5=32 fish.\nThe answer is 32.\n"
+      },
+      {
+        "gold": "50",
+        "ok": false,
+        "out": "The doll cost 3*5=$15\nThe red car cost $4\nSo the total cost of the toys is 5*4+3*5+15=$40\nThe answer is 40.\n"
+      },
+      {
+        "gold": "122",
+        "ok": true,
+        "out": "Bo has 40 crabs.\nMonic has 40-4=36 crabs.\nRani has 36+10=46 crabs.\nSo the total number of crabs the three have together is 40+36+46=122.\nThe answer is 122.\n"
+      },
+      {
+        "gold": "34",
+        "ok": true,
+        "out": "The total cost of the tickets is $20.25\nThe total cost of the food is $20.25 - $4.50 = $15.75\nThe total cost of the rides is $33 * 2 = $66\nSo the total cost of the trip is $20.25 + $15.75 + $66 = $102\nIf they split the cost evenly, each person pays $102 / 3 = $34\nThe answer is 34.\n"
+      },
+      {
+        "gold": "5",
+        "ok": true,
+        "out": "There are 10 ducks, so they need 10*3.5=35 pounds of insects per week.\nThere are 7 days in a week, so they need 35/7=5 pounds of insects per day.\nThe answer is 5.\n"
+      },
+      {
+        "gold": "320",
+        "ok": true,
+        "out": "In the first month, she collected 20 * 3 = 60 cards.\nIn the second month, she collected 60 - 20 = 40 cards.\nIn the third month, she collected 2 * (60 + 40) = 200 cards.\nSo in total, she has 20 + 60 + 40 + 200 = 320 cards.\nThe answer is 320.\n"
+      },
+      {
+        "gold": "860",
+        "ok": true,
+        "out": "In the first four weeks, he rode 5 * 25 * 4 = 500 kilometers.\nIn the next three weeks, he rode 2 * 60 * 3 = 360 kilometers.\nSo in total, he rode 500 + 360 = 860 kilometers.\nThe answer is 860.\n"
+      },
+      {
+        "gold": "145",
+        "ok": false,
+        "out": "The total cost of half a dozen plates is 6000*0.5=$3000\nThe total cost of 20 dozen cups is 3000+1200=$4200\nSo the cost of each cup is 4200/24=$175\nThe answer is 175.\n"
+      },
+      {
+        "gold": "1",
+        "ok": true,
+        "out": "Kalinda can place 4 pieces per minute.\nHer mom can place 4/2=2 pieces per minute.\nTogether they can place 4+2=6 pieces per minute.\nSo it will take them 360/6=60 minutes to complete the puzzle.\n60 minutes is equal to 1 hour.\nThe answer is 1.\n"
+      },
+      {
+        "gold": "192",
+        "ok": false,
+        "out": "The total number of cows is 20*10+40=240\nThe number of cows in each stall is 240/20=12\nSo the number of cows in 8 stalls is 12*8=96\nThe answer is 96.\n"
+      },
+      {
+        "gold": "21",
+        "ok": true,
+        "out": "Her brother is 9*2=18 years old.\nIn 3 years, her brother will be 18+3=21 years old.\nThe answer is 21.\n"
+      },
+      {
+        "gold": "75",
+        "ok": false,
+        "out": "She works for 11-8=3 hours\nSo she works for 3*60=180 minutes\nShe earns 5/10=0.5 dollars per minute\nSo she earns 0.5*180=90 dollars\nThe answer is 90.\n"
+      },
+      {
+        "gold": "123",
+        "ok": true,
+        "out": "The number of girls is 3*30=90\nThe number of nongendered children is 30/10=3\nSo the total number of children is 90+30+3=123\nThe answer is 123.\n"
+      },
+      {
+        "gold": "14",
+        "ok": true,
+        "out": "At the first stop, 5 people got on.\nAt the second stop, 7 people got off and 8 got on.\nSo the total number of people on the bus at the second stop is 5+8-7=6.\nIf there were 20 people heading to the third stop, then there must have been 20-6=14 people on the bus at the terminal.\nThe answer is 14.\n"
+      },
+      {
+        "gold": "100",
+        "ok": true,
+        "out": "Furniture United's offer is 1350+6*350=1350+2100=3450\nCozy Homes' offer is 1100+9*250=1100+2250=3350\nSo the difference is 3450-3350=100\nThe answer is 100.\n"
+      },
+      {
+        "gold": "6",
+        "ok": true,
+        "out": "The total number of guns is 8+10+1+5=24\nIf they are to share the guns equally, each person will have 24/4=6 guns.\nThe answer is 6.\n"
+      },
+      {
+        "gold": "8",
+        "ok": true,
+        "out": "Monday: 1 hour\nTuesday: 3 hours\nWednesday: 0.5 hours\nThursday: 1.5 hours\nFriday: 2 hours\nTotal: 1+3+0.5+1.5+2=8 hours\nThe answer is 8.\n"
+      },
+      {
+        "gold": "20",
+        "ok": true,
+        "out": "The total time spent on the song is 4+2+1.5=7.5 hours.\nThe time spent editing is 1.5 hours.\nSo the percentage of time spent editing is 1.5/7.5=0.2=20%.\nThe answer is 20.\n"
+      },
+      {
+        "gold": "2000",
+        "ok": true,
+        "out": "Elliott has 10,000 - 5,000 - 1,000 = 4,000 steps left to take.\nHe has 4,000 - 2,000 = 2,000 steps left to take after his jog.\nSo he took 2,000 steps during his jog.\nThe answer is 2000.\n"
+      },
+      {
+        "gold": "13",
+        "ok": true,
+        "out": "Indras has 6 letters in her name.\nHer sister's name has 4 more letters than half of the letters in Indras' name.\nSo her sister's name has 4+6/2=4+3=7 letters.\nSo Indras and her sister's names have 6+7=13 letters.\nThe answer is 13.\n"
+      },
+      {
+        "gold": "30",
+        "ok": false,
+        "out": "Prince Thaddeus slew 100 dragons.\nPrince Arthur slew 100 / 4 = 25 dragons.\nPrince Walter slew 2 * 25 = 50 dragons.\nPrince Bruce slew 50 / 5 = 10 dragons.\nThe answer is 10.\n"
+      },
+      {
+        "gold": "5",
+        "ok": true,
+        "out": "Ray had 25-5=20 lollipops left to share with his friends.\nHe shared them equally with 4 friends, so each friend received 20/4=5 lollipops.\nThe answer is 5.\n"
+      },
+      {
+        "gold": "98",
+        "ok": true,
+        "out": "The area of the room is 360 square feet.\nThe length of the room is 3 yards, which is 3*3=9 feet.\nSo the width of the room is 360/9=40 feet.\nThe perimeter of the room is 2*(9+40)=98 feet.\nThe answer is 98.\n"
+      },
+      {
+        "gold": "5",
+        "ok": true,
+        "out": "Joey's score is 214 + 26 = 240 points.\nMarcy's score is 225 + 10 = 235 points.\nJoey is winning by 240 - 235 = 5 points.\nThe answer is 5.\n"
+      },
+      {
+        "gold": "112",
+        "ok": true,
+        "out": "The first six packets have 6 * 8 = 48 pieces of colors.\nThe other four packets have 4 * 16 = 64 pieces of colors.\nSo in total Beatrice bought 48 + 64 = 112 pieces of colors.\nThe answer is 112.\n"
+      },
+      {
+        "gold": "11050",
+        "ok": true,
+        "out": "The cost of filling 20 balloons was $900, so the cost of filling one balloon was $900/20=$45.\nThe cost of filling each balloon was increased by $20, so the new cost of filling one balloon is $45+$20=$65.\nBentley went to fill 170 balloons, so the total cost of filling 170 balloons is $65*170=$11,050.\nThe answer is 11050.\n"
+      },
+      {
+        "gold": "45",
+        "ok": true,
+        "out": "Katelyn saw 50 fairies flying above the nearby forest.\nAfter about twenty minutes, one of her friends saw half as many fairies as Katelyn saw come from the east and join the fairies that were there.\nSo the number of fairies that joined Katelyn's group is 50/2=25.\nTen minutes later, 30 fairies flew away.\nSo the number of fairies remaining is 50+25-30=45.\nThe answer is 45.\n"
+      },
+      {
+        "gold": "1",
+        "ok": true,
+        "out": "Becky paid 20 * 45 = $90 for the apples.\nShe received a $1 discount, so she paid $90 - $1 = $89.\nKelly paid 20 * 50 = $100 for the apples.\nShe received a 10 percent discount, so she paid $100 - $10 = $90.\nKelly paid $90 - $89 = $1 more than Becky.\nThe answer is 1.\n"
+      },
+      {
+        "gold": "4",
+        "ok": true,
+        "out": "Mary has 6 jars of sprinkles, and each jar can decorate 8 cupcakes.\nSo in total, Mary has 6*8=48 cupcakes.\nIf each pan holds 12 cupcakes, then Mary needs 48/12=4 pans of cupcakes.\nThe answer is 4.\n"
+      },
+      {
+        "gold": "5",
+        "ok": true,
+        "out": "The total number of books Sarah bought is 300 / 15 = 20 books.\nIf she gave an equal number of books to her 4 kids, then each child got 20 / 4 = 5 books.\nThe answer is 5.\n"
+      },
+      {
+        "gold": "273",
+        "ok": true,
+        "out": "Mariah used 1/4 of a skein of yarn, which is 364/4=91 yards.\nHer grandma used 1/2 of a skein of yarn, which is 364/2=182 yards.\nSo altogether they used 91+182=273 yards of yarn.\nThe answer is 273.\n"
+      },
+      {
+        "gold": "1600",
+        "ok": false,
+        "out": "Frederick can buy 2 x 4s for $4 each, and 2 x 8s for $6 each.\nIf he buys 2 x 4s, he can get 200 sticks for $4.\nIf he buys 2 x 8s, he can get 400 sticks for $6.\nSo the cheapest way to buy sticks is to buy 2 x 4s.\nFrederick can buy 24 / 4 = 6 2 x 4s.\nSo he can get 6 * 200 = 1200 sticks.\nThe answer is 1200.\n"
+      },
+      {
+        "gold": "18",
+        "ok": true,
+        "out": "She needs to make 72 - 18 - 21 - 15 = 18 vlogs\nThe answer is 18.\n"
+      },
+      {
+        "gold": "50",
+        "ok": false,
+        "out": "Elvis has to save $1125/2=$562.50 in the first half of the month.\nHe wants to save twice as much in the second half, so he has to save 2*562.50=$1125 in the second half of the month.\nThere are 15 days in the second half of the month, so he has to save 1125/15=$75 per day in the second half of the month.\nThe answer is 75.\n"
+      },
+      {
+        "gold": "7",
+        "ok": true,
+        "out": "The cost of the apples is 3*1.50=$4.50\nThe cost of the oranges is 5*0.80=$4.00\nThe cost of the peaches is 6*0.75=$4.50\nSo the total cost is 4.50+4.00+4.50=$13.00\nIf she gave $20, then she received 20-13=$7.00 in change.\nThe answer is 7.00.\n"
+      },
+      {
+        "gold": "130",
+        "ok": false,
+        "out": "Elise writes the alphabet twice, which is 26 * 2 = 52 letters.\nShe then writes half of the alphabet once, which is 26 / 2 = 13 letters.\nSo in total, Elise has written 52 + 13 = 65 letters.\nThe answer is 65.\n"
+      },
+      {
+        "gold": "100",
+        "ok": true,
+        "out": "Mark lost 10 pounds per month for 3 months, so he lost 10 * 3 = 30 pounds.\nHis final weight was 70 pounds, so his initial weight was 70 + 30 = 100 pounds.\nThe answer is 100.\n"
+      },
+      {
+        "gold": "450",
+        "ok": true,
+        "out": "Antonella earned 30% of $1000 = $300\nShe earned an additional 10% of $1500 = $150\nSo she earned a total of $300 + $150 = $450\nThe answer is 450.\n"
+      },
+      {
+        "gold": "12",
+        "ok": true,
+        "out": "The older son is 12 years old, and the younger son is 4 years younger, so he is 12 - 4 = 8 years old.\nJames needs 12 candles for the older son and 8 candles for the younger son, so he needs a total of 12 + 8 = 20 candles.\nSince a pack of 5 candles costs $3, James needs 20 / 5 = 4 packs of candles.\nSo James spends 4 * 3 = $12 on candles.\nThe answer is 12.\n"
+      },
+      {
+        "gold": "21",
+        "ok": true,
+        "out": "Liam made $63\nMitchell made 21 * 4 = $84\nSo Mitchell made $84 - $63 = $21 more than Liam.\nThe answer is 21.\n"
+      },
+      {
+        "gold": "1",
+        "ok": true,
+        "out": "The boots cost $16 on Amazon.com, and shipping costs $4, so the total cost is $16 + $4 = $20.\nThe boots cost $13 on eBay, and shipping costs twice as much as it does on Amazon, so shipping costs $4 * 2 = $8.\nSo the total cost on eBay is $13 + $8 = $21.\nThe boots are $21 - $20 = $1 more expensive on eBay.\nThe answer is 1.\n"
+      },
+      {
+        "gold": "10",
+        "ok": true,
+        "out": "He increases the weight by 50%\nSo the new weight is 8+8*0.5=8+4=12 pounds\nHe uses a weight two pounds lighter than that\nSo the new weight is 12-2=10 pounds\nThe answer is 10.\n"
+      },
+      {
+        "gold": "29",
+        "ok": true,
+        "out": "Steve's wife is 60 + 4 = 64 years old.\nTheir son is 64 / 2 = 32 years old.\nTheir son's wife is 32 - 3 = 29 years old.\nThe answer is 29.\n"
+      },
+      {
+        "gold": "79",
+        "ok": true,
+        "out": "Alisa biked 12 * 4.5 = 54 miles\nStanley biked 10 * 2.5 = 25 miles\nSo in total they biked 54 + 25 = 79 miles\nThe answer is 79.\n"
+      },
+      {
+        "gold": "32",
+        "ok": true,
+        "out": "The class meets 4*6=24 times.\nThe class lasts 2 hours each time, so the total class time is 24*2=48 hours.\nIf he learns a new recipe for every 1.5 hours of class time, then he learns 48/1.5=32 recipes.\nThe answer is 32.\n"
+      },
+      {
+        "gold": "7",
+        "ok": true,
+        "out": "The total cost of 5 lollipops is 5 * 0.40 = $2.00\nThe total cost of 4 candies is 3.20 - 2.00 = $1.20\nThe cost of 10 lollipops is 10 * 0.40 = $4.00\nThe cost of 10 candies is 10 * 0.30 = $3.00\nThe total cost of 10 lollipops and 10 candies is 4.00 + 3.00 = $7.00\nThe answer is 7.00.\n"
+      },
+      {
+        "gold": "145",
+        "ok": false,
+        "out": "Betty collected 30% more than Adam, so she collected 50 * 1.3 = 65 points.\nMarta collected 3 times more than Tom, so she collected 3 * 30 = 90 points.\nThe total points collected by the class is 50 + 65 + 90 + 30 = 235 points.\nThe class is missing 400 - 235 = 165 points to go on the trip.\nThe answer is 165.\n"
+      },
+      {
+        "gold": "50",
+        "ok": true,
+        "out": "The ratio of the money Gerald and Julia have is 3:2.\nSo the total amount of money they have is 3+2=5 parts.\nSo each part is worth 100/5=20 dollars.\nSo Gerald has 3*20=60 dollars.\nIf he spends 10 dollars on a book, he has 60-10=50 dollars left.\nThe answer is 50.\n"
+      },
+      {
+        "gold": "112",
+        "ok": true,
+        "out": "There are 64 students' cars with 4 windows each, so there are 64 * 4 = 256 windows in the students' cars.\nHannah smashes a quarter of the students' cars' windows, so she smashes 256 / 4 = 64 windows.\nThere are 32 teachers' cars with 2 windows each, so there are 32 * 2 = 64 windows in the teachers' cars.\nHannah smashes 3/4ths of the teachers' cars' windows, so she smashes 64 * 3/4 = 48 windows.\nSo "
+      },
+      {
+        "gold": "50",
+        "ok": true,
+        "out": "Candidate A got 20% of the votes, which is 20/100 * 100 = 20 votes.\nCandidate B got 50% more than candidate A's votes, which is 20 * 1.5 = 30 votes.\nThe rest of the votes was given to candidate C, which is 100 - 20 - 30 = 50 votes.\nThe answer is 50.\n"
+      },
+      {
+        "gold": "25",
+        "ok": true,
+        "out": "The number of students that like to play basketball is 5.\nThe number of students that like to play music is 2*5=10.\nThe number of students that like to play video games is 50-10-5-10=25.\nThe answer is 25.\n"
+      },
+      {
+        "gold": "350",
+        "ok": true,
+        "out": "He saves 0.5-0.4=0.1 per tomato\nSo he saves 0.1*500=$50 per day\nSo he saves 50*7=$350 per week\nThe answer is 350.\n"
+      },
+      {
+        "gold": "133",
+        "ok": true,
+        "out": "The discount is 140 * 5/100 = $7\nSo the price after the discount is 140 - 7 = $133\nThe answer is 133.\n"
+      },
+      {
+        "gold": "276",
+        "ok": true,
+        "out": "Henry needs 57*4=228 wheels for the cars\nHe needs 73*2=146 wheels for the motorcycles\nSo he needs 228+146=374 wheels in total\nIf he has 650 wheels, then he will have 650-374=276 wheels left.\nThe answer is 276.\n"
+      },
+      {
+        "gold": "4400",
+        "ok": false,
+        "out": "A third of the movies are in various series, so 600/3=200 movies are in various series.\nThe remaining 600-200=400 movies are older movies.\nSo the cost of the series is 200*6=$1200.\nAnd the cost of the older movies is 400*5=$2000.\nSo the total cost of replacing the movies is 1200+2000=$3200.\nThe answer is 3200.\n"
+      },
+      {
+        "gold": "38",
+        "ok": true,
+        "out": "Winston picked 6 pounds of peaches, so he spent 6 * 2 = $12 on peaches.\nHe picked 8 pounds of plums, so he spent 8 * 1 = $8 on plums.\nHe picked 6 pounds of apricots, so he spent 6 * 3 = $18 on apricots.\nSo in total, Winston spent 12 + 8 + 18 = $38 on fruit.\nThe answer is 38.\n"
+      },
+      {
+        "gold": "310",
+        "ok": true,
+        "out": "At the end of January, there are 10 * 2 = 20 students.\nAt the end of February, there are 20 * 2 = 40 students.\nAt the end of March, there are 40 * 2 = 80 students.\nAt the end of April, there are 80 * 2 = 160 students.\nAt the end of May, there are 160 * 2 = 320 students.\nSo there are 320 - 10 = 310 additional students by the end of May.\nThe answer is 310.\n"
+      },
+      {
+        "gold": "35",
+        "ok": true,
+        "out": "Hunter counted 50 cars in the parking lot when entering class.\nDuring the first break, he counted 20 more cars in the parking lot.\nSo the total number of cars in the parking lot at the end of the first break is 50 + 20 = 70.\nWhen he got out of class for the lunch break, he realized that 1/2 the number of cars in the parking lot had gone.\nSo the number of cars in the parking lot at the end of the l"
+      },
+      {
+        "gold": "1520",
+        "ok": true,
+        "out": "Rafaela received 40 * 20 = $800 in tips.\nJulieta received 10% less than Rafaela, so she received 800 - 800 * 10/100 = $720 in tips.\nSo altogether Rafaela and Julieta received 800 + 720 = $1520 in tips.\nThe answer is 1520.\n"
+      },
+      {
+        "gold": "80",
+        "ok": true,
+        "out": "There were 50 students at the picnic, and each student was given 10 burritos, so the total number of burritos given out was 50*10=500.\nMr. George ate 20 of them, so the total number of burritos eaten was 500+20=520.\nThe total number of burritos ordered was 600, so the number of leftover burritos was 600-520=80.\nThe answer is 80.\n"
+      },
+      {
+        "gold": "23",
+        "ok": true,
+        "out": "They have 2 fewer green cars than red cars, so they have 12-2=10 green cars.\nThey have 3 times the number of blue cars as green cars, so they have 10*3=30 blue cars.\nSo they have 12+10+30=52 cars that are not yellow.\nSo they have 75-52=23 yellow cars.\nThe answer is 23.\n"
+      },
+      {
+        "gold": "90",
+        "ok": true,
+        "out": "The total number of lollipops sold is 30*10=300.\nThe total cost of the lollipops is 300*0.5=$150.\nThe total revenue from selling the lollipops is 300*0.8=$240.\nThe profit is 240-150=$90.\nThe answer is 90.\n"
+      },
+      {
+        "gold": "60",
+        "ok": false,
+        "out": "The total number of Junebugs she removed is 39 + 2*39 + 48 + 57 = 192.\nThe average number of Junebugs she removes per day is 192 / 5 = 38.4.\nThe answer is 38.4.\n"
+      },
+      {
+        "gold": "650",
+        "ok": true,
+        "out": "Craig has spelled out 20 words with 15 letters each, so he has spelled out 20*15=300 letters.\nCraig's brother has spelled words with a total count of letters 50 more than Craig, so he has spelled out 300+50=350 letters.\nSo in total, they have spelled out 300+350=650 letters.\nThe answer is 650.\n"
+      },
+      {
+        "gold": "280",
+        "ok": true,
+        "out": "There are 8*7=56 children in each row.\nThere are 5 rows.\nSo there are 56*5=280 children in the drill.\nThe answer is 280.\n"
+      },
+      {
+        "gold": "450",
+        "ok": true,
+        "out": "The bakery has 7 * 70 - 40 = 490 - 40 = 450 loaves of bread.\nThe answer is 450.\n"
+      },
+      {
+        "gold": "12",
+        "ok": false,
+        "out": "Let x be the number of small stuffed animals sold.\nThen 2x is the number of large stuffed animals sold.\nThe price of a small stuffed animal is $4, so the price of a large stuffed animal is 3 * 4 = $12.\nThe total amount earned from the sales is 4x + 12 * 2x = 120.\nSimplifying the equation, we get 4x + 24x = 120.\nCombining like terms, we get 28x = 120.\nDividing both sides by 28, we get x = 120 / 28 "
+      },
+      {
+        "gold": "66",
+        "ok": true,
+        "out": "The total cost of the books is 3*16=$48\nThe total cost of the pencils is 3*6=$18\nSo the total cost is 48+18=$66\nThe answer is 66.\n"
+      },
+      {
+        "gold": "144",
+        "ok": true,
+        "out": "The north and south walls are 10*8=80 square feet each.\nThe east and west walls are 5*8=40 square feet each.\nSo the total area of the walls is 80+80+40+40=240 square feet.\nSince a gallon of paint can cover 20 square feet, Tony will need 240/20=12 gallons of paint.\nSince each gallon costs $12, Tony will need to spend 12*12=$144 to paint the room.\nThe answer is 144.\n"
+      },
+      {
+        "gold": "30",
+        "ok": true,
+        "out": "Martha is 4 years younger than Mike, so she is 24-4=20 years old.\nJeff is 10 years older than Martha, so he is 20+10=30 years old.\nThe answer is 30.\n"
+      },
+      {
+        "gold": "90",
+        "ok": true,
+        "out": "If a fifth of the jellyfish are large, then a third of the large jellyfish are 1/5 * 1/3 = 1/15 of the total number of jellyfish.\nIf 6 jellyfish changed color, then 6 = 1/15 * total number of jellyfish.\nSo the total number of jellyfish is 6 * 15 = 90.\nThe answer is 90.\n"
+      },
+      {
+        "gold": "60",
+        "ok": true,
+        "out": "There was a 20% increase in enrollment, so the number of students enrolled this year is 50 * 1.2 = 60.\nThe answer is 60.\n"
+      },
+      {
+        "gold": "25",
+        "ok": true,
+        "out": "There are 200 / 8 = 25 boxes.\nEach box weighs 8 ounces, so the total weight of the boxes is 25 * 8 = 200 ounces.\nEach crayon weighs 1 ounce, so the total weight of the crayons is 200 * 1 = 200 ounces.\nThe total weight of the crayons and boxes is 200 + 200 = 400 ounces.\nSince there are 16 ounces in a pound, the total weight is 400 / 16 = 25 pounds.\nThe answer is 25.\n"
+      },
+      {
+        "gold": "27",
+        "ok": false,
+        "out": "It takes 3-1=2 potatoes to make 1 scoop of mashed potatoes.\nSo it takes 2*23=46 potatoes to make 23 scoops of mashed potatoes.\nGomer ate 5 less than 23 scoops of mashed potatoes, so he ate 23-5=18 scoops of mashed potatoes.\nSo it took 2*18=36 potatoes to make 18 scoops of mashed potatoes.\nThe answer is 36.\n"
+      },
+      {
+        "gold": "93",
+        "ok": true,
+        "out": "Each fish needs $1 worth of food a day.\nSo 3 fish need 3 * 1 = $3 worth of food a day.\nThere are 31 days in May.\nSo in May, Jen spends 3 * 31 = $93 on food.\nThe answer is 93.\n"
+      },
+      {
+        "gold": "170",
+        "ok": false,
+        "out": "He sold half of the land for $50, which is 80/2=40 square meters.\nHe sold another 1/4 of his land for $30, which is 80/4=20 square meters.\nSo he sold 40+20=60 square meters of land.\nHe sold the remaining land for $3 per square meter, which is 80-60=20 square meters.\nSo he sold 20*3=$60 worth of land.\nSo in total he sold 50+30+60=$140 worth of land.\nThe answer is 140.\n"
+      },
+      {
+        "gold": "1800",
+        "ok": true,
+        "out": "He can buy 100 * 27000 / 500 = 5400 books.\nHe can buy 5400 / 3 = 1800 books per school.\nThe answer is 1800.\n"
+      },
+      {
+        "gold": "40000",
+        "ok": true,
+        "out": "The loan is worth 250,000 * 0.4 = $100,000\nHe pays off 100,000 * 0.6 = $60,000\nSo he has 100,000 - 60,000 = $40,000 left after paying off his debts.\nThe answer is 40000.\n"
+      },
+      {
+        "gold": "29",
+        "ok": true,
+        "out": "The low setting removes 1 liter of water per day, so over 3 days it removes 3*1=3 liters of water.\nThe medium setting removes twice as much water per day as the low setting, so it removes 2*1=2 liters of water per day.  Over 3 days it removes 3*2=6 liters of water.\nThe high setting removes twice as much water per day as the medium setting, so it removes 2*2=4 liters of water per day.  Over 5 days "
+      },
+      {
+        "gold": "15",
+        "ok": true,
+        "out": "Eve had 20 pieces of pomelos.\nAfter giving her friend some pomelos, Eve is left with 1/4 of the pomelos she originally had.\nSo Eve gave away 20 - 20/4 = 20 - 5 = 15 pomelos.\nThe answer is 15.\n"
+      },
+      {
+        "gold": "84",
+        "ok": false,
+        "out": "Madeline ate 6 grapes.\nHer brother used 5 * 6 = 30 grapes.\nSo there were 6 + 30 = 36 grapes at the beginning.\nThe answer is 36.\n"
+      },
+      {
+        "gold": "7",
+        "ok": false,
+        "out": "Brendan had 10 marbles.\nHe dropped half of them, so he had 10/2=5 marbles left.\nHe found 3 of them, so he had 5-3=2 marbles left.\nHe found a bead, so he got rid of it.\nSo he ended up with 2-1=1 marble.\nThe answer is 1.\n"
+      },
+      {
+        "gold": "147",
+        "ok": true,
+        "out": "The German Shepherds eat 3 * 5 = 15 kilograms of food per day.\nThe Bulldogs eat 2 * 3 = 6 kilograms of food per day.\nSo in total, the dogs eat 15 + 6 = 21 kilograms of food per day.\nIn a week, the dogs eat 21 * 7 = 147 kilograms of food.\nThe answer is 147.\n"
+      },
+      {
+        "gold": "84",
+        "ok": true,
+        "out": "The older brother is 12 * 2 = 24 years old.\nThe younger brother is 12 years old.\nThe total age of all the siblings is 24 + 12 + 3 * 16 = 24 + 12 + 48 = 84 years.\nThe answer is 84.\n"
+      },
+      {
+        "gold": "120",
+        "ok": true,
+        "out": "He is open 5 days a week.\nSo in 2 weeks he is open 5*2=10 days.\nHe services 3 cars a day.\nSo in 10 days he services 3*10=30 cars.\nHe gets paid $4 per car.\nSo in 2 weeks he makes 30*4=$120.\nThe answer is 120.\n"
+      },
+      {
+        "gold": "23",
+        "ok": true,
+        "out": "Randy has 9+4+5=18 cookies\nHe ate 3 cookies for an early day snack, one of each flavor.\nHe ate 2 oatmeal cookies for lunch.\nHe gives 2 sugar cookies to his friends.\nSo he has 18-3-2-2=11 cookies left.\nThen, he bakes 4 of each flavor for dinner.\nSo he has 11+4+4+4=23 cookies.\nThe answer is 23.\n"
+      },
+      {
+        "gold": "2280",
+        "ok": false,
+        "out": "Kim raises $430+$320=$750\nMaryam raises $300+$400=$700\nSarah raises $300\nSo in total they raised $750+$700+$300=$1750\nThe answer is 1750.\n"
+      },
+      {
+        "gold": "64",
+        "ok": false,
+        "out": "Vanessa ran 4 miles, and Aaron ran 2 miles.\nAaron ran 2 miles in 16 minutes, so he ran 1 mile in 16/2=8 minutes.\nVanessa ran 4 miles, so she ran 1 mile in 8 minutes.\nSo Vanessa ran 4 miles in 4*8=32 minutes.\nThe answer is 32.\n"
+      },
+      {
+        "gold": "230",
+        "ok": false,
+        "out": "The cost of the radiator is 400 * 0.8 = $320.\nThe cost of the mechanic is 3 * 50 = $150.\nSo the total cost is 320 + 150 = $470.\nThe answer is 470.\n"
+      }
+    ]
+  }
+}

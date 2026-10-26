@@ -1,0 +1,536 @@
+{
+  "harness": "lm-eval==0.4.13 (EleutherAI LM Harness)",
+  "mode": "dynamickv",
+  "config": "DynaLoop(K=0, rho=0.55, ws=64, b_min=0.05, m=6, c=5, decay=1.0, min_prompt=192)",
+  "model": "D:/Code/models/Ouro-1.4B",
+  "n": 100,
+  "nshot": 6,
+  "seed": 42,
+  "target_prompt_tokens": 1000,
+  "gen_toks": 512,
+  "batch": 4,
+  "max_gen_toks": 512,
+  "per_loop_retention": {
+    "loop1": 0.5696,
+    "loop2": 0.5697,
+    "loop3": 0.5698,
+    "loop4": 0.5698
+  },
+  "wall_s": 5974.1,
+  "peak_mem_GiB": 9.468,
+  "kv_MiB_per_sample": 570.52,
+  "decode_ms_per_step": 435.6,
+  "results": {
+    "math500_local": {
+      "name": "math500_local",
+      "alias": "math500_local",
+      "sample_len": 100,
+      "exact_match,none": 0.44,
+      "exact_match_stderr,none": 0.049888765156985884
+    }
+  },
+  "samples": {
+    "math500_local": [
+      {
+        "gold": "9",
+        "ok": true,
+        "out": "To find the number of positive whole-number divisors of 196, we need to find its prime factorization.\n\n196 = 2^2 * 7^2\n\nThe number of divisors of a number is equal to the product of the exponents of its prime factors plus one.\n\nSo, the number of divisors of 196 is (2+1) * (2+1) = 3 * 3 = 9\n\nTherefore, 196 has 9 positive whole-number divisors.\n\nAnswer: \\boxed{9}\n"
+      },
+      {
+        "gold": "284",
+        "ok": false,
+        "out": "To find the sum of the proper divisors of the sum of the proper divisors of 284, we need to follow these steps:\n\n1. **Find the proper divisors of 284.**\n   - First, determine the prime factorization of 284.\n     \\[\n     284 \\div 2 = 142 \\\\\n     142 \\div 2 = 71 \\\\\n     71 \\div 71 = 1\n     \\]\n     So, the prime factorization of 284 is \\(2^2 \\times 71\\).\n   - The proper divisors of 284 are all the di"
+      },
+      {
+        "gold": "5",
+        "ok": true,
+        "out": "The volume of a cylinder is given by the formula $V = \\pi r^2 h$, where $r$ is the radius and $h$ is the height. We are given that the volume is $45\\pi$ cubic cm and the radius is $3$ cm. We can plug these values into the formula and solve for $h$:\n\n\\begin{align*}\n45\\pi &= \\pi (3)^2 h \\\\\n45\\pi &= 9\\pi h \\\\\nh &= \\frac{45\\pi}{9\\pi} \\\\\nh &= 5\n\\end{align*}\n\nTherefore, the height of the cylinder is $5$"
+      },
+      {
+        "gold": "6 - 5i",
+        "ok": false,
+        "out": "We have that $z = 2 + \\sqrt{2} - (3 + 3 \\sqrt{2})i = 2 + \\sqrt{2} - 3i - 3 \\sqrt{2}i = (2 + \\sqrt{2} - 3i) - 3 \\sqrt{2}i = (2 + \\sqrt{2} - 3i) - 3 \\sqrt{2}i = (2 + \\sqrt{2} - 3i) - 3 \\sqrt{2}i = (2 + \\sqrt{2} - 3i) - 3 \\sqrt{2}i = (2 + \\sqrt{2} - 3i) - 3 \\sqrt{2}i = (2 + \\sqrt{2} - 3i) - 3 \\sqrt{2}i = (2 + \\sqrt{2} - 3i) - 3 \\sqrt{2}i = (2 + \\sqrt{2} - 3i) - 3 \\sqrt{2}i = (2 + \\sqrt{2} - 3i) - 3 \\"
+      },
+      {
+        "gold": "-50",
+        "ok": true,
+        "out": "We can group the terms in pairs:\n\\begin{align*}\n1-2+3-4+5- \\dots +99-100 &= (1-2)+(3-4)+(5-6)+ \\dots +(99-100) \\\\\n&= -1-1-1 \\dots -1 \\\\\n&= -50.\n\\end{align*}\n\nTherefore, the answer is $\\boxed{-50}$.\n"
+      },
+      {
+        "gold": "5",
+        "ok": false,
+        "out": "Let's call the pay for walking one dog \"p\". Then Denali's pay is 16p and Nate's pay is 12p.\n\nUnder the new policy, Denali will be assigned or unassigned new dogs in groups of x dogs. So Denali's new pay will be 16p + 4xp and Nate's new pay will be 12p.\n\nThe ratio of Denali's pay to Nate's pay is the same under both policies, so we can set up the equation:\n\n(16p + 4xp) / (12p) = (16p + 4xp) / (12p "
+      },
+      {
+        "gold": "x=5",
+        "ok": false,
+        "out": "We have $x = \\!\\sqrt{11-2x} + 4$.  Squaring both sides, we get\n\\[x^2 = 11 - 2x + 8x + 16,\\]so $x^2 + 6x - 27 = 0$.  This factors as $(x + 9)(x - 3) = 0$, so $x = -9$ or $x = 3$.  We check that $x = -9$ does not work, so the only solution is $x = \\boxed{3}$.\n"
+      },
+      {
+        "gold": "3",
+        "ok": true,
+        "out": "We have that\n\\begin{align*}\n(n + 2)(n + 4)(n + 6) &\\equiv (2 + 2)(2 + 4)(2 + 6) \\pmod{7} \\\\\n&\\equiv 4 \\cdot 6 \\cdot 8 \\pmod{7} \\\\\n&\\equiv 4 \\cdot 6 \\cdot 1 \\pmod{7} \\\\\n&\\equiv 24 \\pmod{7} \\\\\n&\\equiv 3 \\pmod{7}.\n\\end{align*}Therefore, the remainder when $(n + 2)(n + 4)(n + 6)$ is divided by 7 is $\\boxed{3}$.\n"
+      },
+      {
+        "gold": "3, 5, 7",
+        "ok": false,
+        "out": "We can rewrite the equation as\n\\[(x - 3)^3 + (x - 7)^3 = (2x - 10)^3.\\]Expanding the left-hand side, we get\n\\[x^3 - 9x^2 + 27x - 27 + x^3 - 14x^2 + 98x - 343 = 2x^3 - 60x^2 + 300x - 1000.\\]Combining like terms, we get\n\\[2x^3 - 23x^2 + 125x - 370 = 2x^3 - 60x^2 + 300x - 1000.\\]Subtracting $2x^3$ from both sides, we get\n\\[-23x^2 + 125x - 370 = -60x^2 + 300x - 1000.\\]Adding $60x^2$ to both sides, we "
+      },
+      {
+        "gold": "12",
+        "ok": true,
+        "out": "The perimeter of the hexagon is $6 \\times 16 = 96$ cm.  Since the octagon has the same perimeter, each side of the octagon is $\\frac{96}{8} = 12$ cm.\n\nTherefore, the answer is $\\boxed{12}$ cm.\n"
+      },
+      {
+        "gold": "1.25",
+        "ok": false,
+        "out": "We can use the Pythagorean Theorem to find the distance from Bill's starting point to his final position.\n\nLet $x$ be the distance Bill walked south, and $y$ be the distance Bill walked east. Then, the distance from Bill's starting point to his final position is $\\sqrt{x^2+y^2}$.\n\nWe are given that $x=\\frac{1}{2}$ and $y=\\frac{3}{4}$. So, the distance from Bill's starting point to his final positi"
+      },
+      {
+        "gold": "5",
+        "ok": false,
+        "out": "The vertical asymptotes of $f(x)$ occur when the denominator is zero, so we need to find the roots of $x^2-5x-14=0$.  This factors as $(x-7)(x+2)=0$, so the roots are $x=7$ and $x=-2$.  Therefore, $a=7$ and $b=-2$.\n\nThe horizontal asymptote of $f(x)$ is the ratio of the leading coefficients of the numerator and denominator, which is $\\frac{2}{1}=2$.  Therefore, $c=2$.\n\nTherefore, $a+b+c=7+(-2)+2=7"
+      },
+      {
+        "gold": "83",
+        "ok": true,
+        "out": "We are given that half the value of $3x-9$ is $x+37$.  This means that\n\\[\\frac{1}{2}(3x-9) = x+37.\\]Multiplying both sides by 2, we get\n\\[3x-9 = 2x+74.\\]Subtracting $2x$ from both sides, we get\n\\[x-9 = 74.\\]Adding 9 to both sides, we get\n\\[x = 83.\\]Therefore, the answer is $\\boxed{83}$.\n"
+      },
+      {
+        "gold": "x^5 - x^4 + x^3 - x^2 + x - 1",
+        "ok": true,
+        "out": "We can use polynomial long division to find the quotient.\n\n\\begin{tabular}{c|ccccccc}\n& $x^5$ & $x^4$ & $x^3$ & $x^2$ & $x$ & $-3$ \\\\\n\\cline{2-7}\n$x+1$ & $x^6$ & $0$ & $0$ & $0$ & $0$ & $-3$ \\\\\n& $x^6$ & $x^5$ & $0$ & $0$ & $0$ & $0$ \\\\\n\\cline{2-6}\n& & $-x^5$ & $0$ & $0$ & $0$ & $-3$ \\\\\n& & $-x^5$ & $-x^4$ & $0$ & $0$ & $0$ \\\\\n\\cline{2-5}\n& & & $x^4$ & $0$ & $0$ & $-3$ \\\\\n& & & $x^4$ & $x^3$ & $0$"
+      },
+      {
+        "gold": "12",
+        "ok": true,
+        "out": "We have\n\\begin{align*}\n\\frac{\\sqrt{2.5^2-0.7^2}}{2.7-2.5} &= \\frac{\\sqrt{6.25-0.49}}{0.2} \\\\\n&= \\frac{\\sqrt{5.76}}{0.2} \\\\\n&= \\frac{2.4}{0.2} \\\\\n&= \\boxed{12}.\n\\end{align*}\n"
+      },
+      {
+        "gold": "16",
+        "ok": true,
+        "out": "We have that\n\\begin{align*}\n|(1-i)^8| &= |(1-i)^2|^4 \\\\\n&= |1-2i+i^2|^4 \\\\\n&= |1-2i-1|^4 \\\\\n&= |-2i|^4 \\\\\n&= 2^4 \\\\\n&= 16.\n\\end{align*}\n"
+      },
+      {
+        "gold": "10",
+        "ok": false,
+        "out": "We have that\n\\begin{align*}\nx^8 + 3x^4 - 4 &= x^8 + 4x^4 - x^4 - 4 \\\\\n&= x^4(x^4 + 4) - (x^4 + 4) \\\\\n&= (x^4 - 1)(x^4 + 4) \\\\\n&= (x^2 - 1)(x^2 + 1)(x^4 + 4) \\\\\n&= (x - 1)(x + 1)(x^2 + 1)(x^4 + 4).\n\\end{align*}Since $x^4 + 4$ is irreducible over the integers, we have that\n\\[x^8 + 3x^4 - 4 = (x - 1)(x + 1)(x^2 + 1)(x^4 + 4).\\]Then\n\\begin{align*}\np_1(1) + p_2(1) + \\dots + p_k(1) &= (1 - 1)(1 + 1)(1^2"
+      },
+      {
+        "gold": "2516_8",
+        "ok": false,
+        "out": "To convert a binary number to base eight, we can group the binary digits into sets of three, starting from the right. Each set of three binary digits can be converted to a single base eight digit.\n\nThe binary number $10101001110_{2}$ can be grouped as follows:\n\n$10101001110_{2} = 101\\ 010\\ 011\\ 100_{2}$\n\nNow, we can convert each set of three binary digits to a base eight digit:\n\n$101_{2} = 5_{8}$\n"
+      },
+      {
+        "gold": "2",
+        "ok": true,
+        "out": "We have $2^3\\cdot3^x=72$. Dividing both sides by $2^3$, we get $3^x=72/2^3=72/8=9$. Taking the logarithm base 3 of both sides, we get $x=\\log_39=2$. Therefore, the answer is $\\boxed{2}$.\n"
+      },
+      {
+        "gold": "3",
+        "ok": true,
+        "out": "Let $t$ be the weight of one treek, $s$ be the weight of one squig, and $g$ be the weight of one goolee.\n\nFrom the first statement, we have:\n\\[10t = 3s + g\\]\n\nFrom the second statement, we have:\n\\[2t + g = s\\]\n\nWe want to find the number of treeks that weigh as much as one squig, so we need to solve for $t$ in terms of $s$. We can do this by substituting the expression for $g$ from the second equa"
+      },
+      {
+        "gold": "2",
+        "ok": false,
+        "out": "We have $3^{2x} + 19 = 10^x$.  Taking the logarithm base 10 of both sides, we get\n\\[\\log_{10} (3^{2x} + 19) = x.\\]Since $3^{2x} + 19 > 10^x$, we have $\\log_{10} (3^{2x} + 19) > x$, so $x$ is not a solution.\n\nWe have $3^{2x} + 19 = 10^x$.  Taking the logarithm base 3 of both sides, we get\n\\[\\log_3 (3^{2x} + 19) = x.\\]Since $3^{2x} + 19 > 3^x$, we have $\\log_3 (3^{2x} + 19) > x$, so $x$ is not a sol"
+      },
+      {
+        "gold": "2k+2",
+        "ok": true,
+        "out": "We can combine the like terms in the expression $(-k + 4) + (-2 + 3k)$ by adding the coefficients of $k$ and the constant terms separately.\n\nThe coefficient of $k$ in the first term is $-1$, and the coefficient of $k$ in the second term is $3$. Therefore, the coefficient of $k$ in the simplified expression is $-1 + 3 = 2$.\n\nThe constant term in the first term is $4$, and the constant term in the s"
+      },
+      {
+        "gold": "850",
+        "ok": false,
+        "out": "We can rewrite the equation as\n\\[(x-13)^10 + 10(x-13)^9 + 45(x-13)^8 + 120(x-13)^7 + 210(x-13)^6 + 252(x-13)^5 + 210(x-13)^4 + 120(x-13)^3 + 45(x-13)^2 + 10(x-13) + 1 = 0.\\]Let $y = x - 13.$  Then the equation becomes\n\\[y^{10} + 10y^9 + 45y^8 + 120y^7 + 210y^6 + 252y^5 + 210y^4 + 120y^3 + 45y^2 + 10y + 1 = 0.\\]This factors as\n\\[(y + 1)^{10} = 0.\\]Hence, the roots are $y = -1,$ with multiplicity 10"
+      },
+      {
+        "gold": "9",
+        "ok": false,
+        "out": "The set of all the prime numbers less than 30 is $\\{2,3,5,7,11,13,17,19,23,29\\}$. The set of all the odd numbers greater than zero is $\\{1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71,73,75,77,79,81,83,85,87,89,91,93,95,97,99,101,103,105,107,109,111,113,115,117,119,121,123,125,127,129,131,133,135,137,139,141,143,145,147,149,151,153,155,157,15"
+      },
+      {
+        "gold": "504",
+        "ok": false,
+        "out": "We are given that $a_{2k-1}$, $a_{2k}$, $a_{2k+1}$ is geometric and $a_{2k}$, $a_{2k+1}$, $a_{2k+2}$ is arithmetic.  This means that $a_{2k+1}^2 = a_{2k-1}a_{2k+2}$ and $a_{2k+1} - a_{2k} = a_{2k+2} - a_{2k+1}$.  We can rewrite the second equation as $a_{2k+2} = 2a_{2k+1} - a_{2k}$.  Substituting this into the first equation, we get $a_{2k+1}^2 = a_{2k-1}(2a_{2k+1} - a_{2k})$.  Expanding the right"
+      },
+      {
+        "gold": "210",
+        "ok": true,
+        "out": "We can choose the boys in $\\binom{7}{3}$ ways, and the girls in $\\binom{4}{2}$ ways.  Therefore, the total number of ways to choose the boys and girls is $\\binom{7}{3}\\binom{4}{2} = 35 \\cdot 6 = 210$.\n\nTherefore, the answer is $\\boxed{210}$.\n"
+      },
+      {
+        "gold": "13",
+        "ok": true,
+        "out": "We have\n\\begin{align*}\n\\frac{1+\\sqrt{2}}{2+\\sqrt{3}} &= \\frac{(1+\\sqrt{2})(2-\\sqrt{3})}{(2+\\sqrt{3})(2-\\sqrt{3})} \\\\\n&= \\frac{2-\\sqrt{3}+2\\sqrt{2}-\\sqrt{6}}{4-3} \\\\\n&= 2-\\sqrt{3}+2\\sqrt{2}-\\sqrt{6} \\\\\n&= 2(1+\\sqrt{2})-(\\sqrt{3}+\\sqrt{6})\n\\end{align*}\nThus, $A+B+C+D=2+2+3+6=13$.\n\n\\boxed{13}\n"
+      },
+      {
+        "gold": "-5",
+        "ok": false,
+        "out": "We have that\n\\[\\frac{C}{x-3}+\\frac{D}{x+8}=\\frac{4x-23}{x^2+5x-24}=\\frac{4x-23}{(x-3)(x+8)}.\\]Then\n\\[\\frac{C}{x-3}+\\frac{D}{x+8}=\\frac{4x-23}{(x-3)(x+8)}=\\frac{4x-23}{(x-3)(x+8)}=\\frac{4x-23}{(x-3)(x+8)}.\\]Multiplying both sides by $(x-3)(x+8),$ we get\n\\[C(x+8)+D(x-3)=4x-23.\\]Then $C(x+8)+D(x-3)=4x-23.$  Expanding, we get\n\\[Cx+8C+Dx-3D=4x-23.\\]Then $Cx+8C+Dx-3D=4x-23.$  Equating coefficients, we g"
+      },
+      {
+        "gold": "2",
+        "ok": true,
+        "out": "We have $2^{2x} = 256^\\frac{1}{2}$.  Since $256 = 2^8$, we have $2^{2x} = (2^8)^\\frac{1}{2} = 2^4$.  Therefore, $2x = 4$, so $x = \\boxed{2}$.\n"
+      },
+      {
+        "gold": "-9",
+        "ok": false,
+        "out": "We can add parentheses in various locations to change the value of the expression. For example, $1+2+3-(4+5)+6=1+2+3-9+6=6-9+6=3$.\n\nTo find the minimum possible value, we need to consider the effect of adding parentheses on the expression.\n\nIf we add parentheses around the first three terms, we get $1+2+3-(4+5)+6=1+2+3-9+6=6-9+6=3$.\n\nIf we add parentheses around the first two terms, we get $1+(2+3"
+      },
+      {
+        "gold": "-3",
+        "ok": true,
+        "out": "We have\n\\begin{align*}\n\\lceil (3.6)^2 \\rceil - ( \\lceil 3.6 \\rceil ) ^2 &= \\lceil 12.96 \\rceil - ( \\lceil 3.6 \\rceil ) ^2 \\\\\n&= 13 - 4^2 \\\\\n&= 13 - 16 \\\\\n&= \\boxed{-3}.\n\\end{align*}\n"
+      },
+      {
+        "gold": "9",
+        "ok": true,
+        "out": "To find the number of zeroes at the end of $42!$, we need to find the highest power of 10 that divides $42!$. Since $10 = 2 \\cdot 5$, we need to find the highest power of 2 and 5 that divides $42!$. The number of zeroes at the end of $42!$ will be the minimum of the number of 2's and 5's in the prime factorization of $42!$.\n\nThe number of 2's in the prime factorization of $42!$ is given by:\n\n$$\\le"
+      },
+      {
+        "gold": "64",
+        "ok": false,
+        "out": "We have\n\\begin{align*}\n\\sum_{i = 1}^n a_i^3 &= 216 \\\\\n\\sum_{i = 1}^n a_i^2 a_i &= 216 \\\\\n\\sum_{i = 1}^n a_i^3 &= 216 \\\\\n\\sum_{i = 1}^n a_i^2 a_i &= 216 \\\\\n\\sum_{i = 1}^n a_i^2 a_i &= 216 \\\\\n\\sum_{i = 1}^n a_i^2 a_i &= 216 \\\\\n\\sum_{i = 1}^n a_i^2 a_i &= 216 \\\\\n\\sum_{i = 1}^n a_i^2 a_i &= 216 \\\\\n\\sum_{i = 1}^n a_i^2 a_i &= 216 \\\\\n\\sum_{i = 1}^n a_i^2 a_i &= 216 \\\\\n\\sum_{i = 1}^n a_i^2 a_i &= 216 \\\\\n"
+      },
+      {
+        "gold": "13",
+        "ok": true,
+        "out": "We have that\n\\begin{align*}\n\\gcd(n + 7, 2n + 1) &= \\gcd(n + 7, 2n + 1 - 2(n + 7)) \\\\\n&= \\gcd(n + 7, -13) \\\\\n&= \\gcd(n + 7, 13).\n\\end{align*}Since $n$ is a positive integer, $n + 7$ is a positive integer, so $\\gcd(n + 7, 13)$ is a positive integer.  The only positive divisors of 13 are 1 and 13, so the greatest possible value of $\\gcd(n + 7, 13)$ is 13.\n\nTherefore, the greatest possible value of $\\"
+      },
+      {
+        "gold": "28800",
+        "ok": true,
+        "out": "We can treat the Democrats, Republicans, and Independent as three blocks.  There are $3!$ ways to arrange these blocks around the table.  Within each block, there are $5!$ ways to arrange the members.  Therefore, the total number of ways to seat the committee members is $3! \\cdot 5! \\cdot 5! \\cdot 1! = 6 \\cdot 120 \\cdot 120 \\cdot 1 = 86400$.\n\nHowever, we have overcounted by a factor of 3, since we"
+      },
+      {
+        "gold": "11",
+        "ok": true,
+        "out": "We can cross-multiply to get \\[2(x-5) = 4 \\cdot 3.\\]Expanding the left side gives \\[2x - 10 = 12.\\]Adding $10$ to both sides gives \\[2x = 22.\\]Dividing both sides by $2$ gives \\[x = 11.\\]Therefore, the solution is $x = \\boxed{11}$.\n"
+      },
+      {
+        "gold": "1",
+        "ok": false,
+        "out": "We can start by computing some values of $f(i,j)$ for small values of $i$ and $j$.\n\nFor $i=0$, we have $f(0,j) = \\text{mod}_5 (j+1)$. So, $f(0,0) = 0$, $f(0,1) = 1$, $f(0,2) = 2$, $f(0,3) = 3$, and $f(0,4) = 4$.\n\nFor $i=1$, we have $f(1,0) = f(0,1) = 1$ and $f(1,j) = f(0, f(1,j-1))$ for $1 \\le j \\le 4$. So, $f(1,1) = f(0,1) = 1$, $f(1,2) = f(0,1) = 1$, $f(1,3) = f(0,1) = 1$, and $f(1,4) = f(0,1) ="
+      },
+      {
+        "gold": "350",
+        "ok": true,
+        "out": "Let the first term of the arithmetic sequence be $a$ and the common difference be $d$. Then the fourth term is $a+3d=200$ and the eighth term is $a+7d=500$. Subtracting the first equation from the second, we get $4d=300$, so $d=75$. Substituting this into the first equation, we get $a+3(75)=200$, so $a=200-225=-25$. The sixth term is $a+5d=-25+5(75)=-25+375=350$. Therefore, the sixth term is $\\box"
+      },
+      {
+        "gold": "2",
+        "ok": true,
+        "out": "To find the $y$-intercepts of the parabola $x = y^2 - 4y - 1$, we need to find the values of $y$ for which $x = 0$. This gives us the equation\n\n$$0 = y^2 - 4y - 1.$$\n\nWe can solve this equation by factoring:\n\n$$0 = (y - 1)(y + 1).$$\n\nThis gives us two possible values for $y$: $y = 1$ and $y = -1$. Therefore, the graph of the parabola has two $y$-intercepts.\n\nSo the answer is $\\boxed{2}$.\n"
+      },
+      {
+        "gold": ".0000672",
+        "ok": false,
+        "out": "We have that\n\\begin{align*}\n\\frac{21}{2^2 \\cdot 5^7} &= \\frac{21}{2^2 \\cdot 5^2 \\cdot 5^5} \\\\\n&= \\frac{21}{2^2 \\cdot 10^2 \\cdot 5^5} \\\\\n&= \\frac{21}{2^2 \\cdot 10^2 \\cdot 5^2 \\cdot 5^3} \\\\\n&= \\frac{21}{2^2 \\cdot 10^2 \\cdot 25 \\cdot 125} \\\\\n&= \\frac{21}{2^2 \\cdot 10^2 \\cdot 3125} \\\\\n&= \\frac{21}{2^2 \\cdot 10^2 \\cdot 5^5} \\\\\n&= \\frac{21}{2^2 \\cdot 10^2 \\cdot 5^2 \\cdot 5^3} \\\\\n&= \\frac{21}{2^2 \\cdot 1"
+      },
+      {
+        "gold": "\\frac{\\sqrt{3}}{3}",
+        "ok": false,
+        "out": "We have that\n\\begin{align*}\n\\sqrt{\\sqrt[3]{\\sqrt{\\frac{1}{729}}}} &= \\sqrt{\\sqrt[3]{\\frac{1}{27}}} \\\\\n&= \\sqrt{\\frac{1}{3}} \\\\\n&= \\frac{1}{\\sqrt{3}} \\\\\n&= \\frac{\\sqrt{3}}{3}.\n\\end{align*}\n"
+      },
+      {
+        "gold": "23",
+        "ok": true,
+        "out": "We have that\n\\begin{align*}\n\\sqrt{2} + \\frac{1}{\\sqrt{2}} + \\sqrt{3} + \\frac{1}{\\sqrt{3}} &= \\sqrt{2} + \\frac{\\sqrt{2}}{2} + \\sqrt{3} + \\frac{\\sqrt{3}}{3} \\\\\n&= \\frac{2\\sqrt{2}}{2} + \\frac{\\sqrt{2}}{2} + \\frac{3\\sqrt{3}}{3} + \\frac{\\sqrt{3}}{3} \\\\\n&= \\frac{3\\sqrt{2}}{2} + \\frac{4\\sqrt{3}}{3} \\\\\n&= \\frac{9\\sqrt{2} + 8\\sqrt{3}}{6}.\n\\end{align*}Thus, $a+b+c = 9+8+6 = 23$.\n\nTherefore, the answer is $\\"
+      },
+      {
+        "gold": "1",
+        "ok": true,
+        "out": "We have $(3^k)^6 = 3^6$.\n\nUsing the property of exponents that $(a^b)^c = a^{bc}$, we can rewrite the left side as $3^{6k}$.\n\nSo we have $3^{6k} = 3^6$.\n\nSince the bases are the same, we can set the exponents equal to each other: $6k = 6$.\n\nDividing both sides by 6, we get $k = 1$.\n\nTherefore, the answer is $\\boxed{1}$.\n"
+      },
+      {
+        "gold": "7",
+        "ok": false,
+        "out": "We want to find the number of positive integers $n>1$ such that $2^{24}$ is a perfect $n^{\\text{th}}$ power.  This means that there exists an integer $k$ such that $2^{24} = k^n$.\n\nSince $2^{24}$ is a power of $2$, $k$ must also be a power of $2$.  Let $k = 2^m$ for some integer $m$.  Then we have\n\\[2^{24} = (2^m)^n = 2^{mn}.\\]This means that $24 = mn$, so $m$ must be a factor of $24$.  The factor"
+      },
+      {
+        "gold": "160",
+        "ok": false,
+        "out": "We have that $CD = 140$ and $HC = 150$ and $HD = 130$.  Let $x$ be the length of $HP$.  Then $HC = x + CP$ and $HD = x + DP$.  Since $CD = 140$, we have $CP + DP = 140$.  Substituting $CP = x - HC$ and $DP = x - HD$, we have $x - HC + x - HD = 140$.  Substituting $HC = 150$ and $HD = 130$, we have $x - 150 + x - 130 = 140$.  Simplifying, we have $2x - 280 = 140$.  Adding $280$ to both sides, we ha"
+      },
+      {
+        "gold": "4",
+        "ok": true,
+        "out": "By the Rational Root Theorem, the possible rational roots of the polynomial are of the form $\\frac{p}{q}$, where $p$ is a factor of the constant term (1) and $q$ is a factor of the leading coefficient (2).\n\nThe factors of 1 are $\\pm 1$, and the factors of 2 are $\\pm 1$ and $\\pm 2$.\n\nTherefore, the possible rational roots are $\\pm 1$ and $\\pm \\frac{1}{2}$.\n\nThere are 4 different possible rational r"
+      },
+      {
+        "gold": "\\frac{1}{4}",
+        "ok": false,
+        "out": "We can write\n\\[\\frac{x - y}{x^4 + y^4 + 6} = \\frac{x - y}{x^4 + y^4 + 2 \\cdot 3} \\le \\frac{x - y}{2 \\sqrt{x^4 y^4}} = \\frac{x - y}{2 x^2 y^2}.\\]Then\n\\[\\frac{x - y}{2 x^2 y^2} = \\frac{1}{2} \\left( \\frac{1}{x^2 y^2} - \\frac{1}{x^2} - \\frac{1}{y^2} \\right) = \\frac{1}{2} \\left( \\frac{1}{x^2 y^2} - \\frac{1}{x^2} - \\frac{1}{y^2} + 1 - 1 \\right) = \\frac{1}{2} \\left( \\frac{1}{x^2 y^2} - \\frac{1}{x^2} - \\f"
+      },
+      {
+        "gold": "110",
+        "ok": false,
+        "out": "Let's start by defining some variables:\n\n- Let $C$ be the number of students who take calculus.\n- Let $P$ be the number of students who take physics.\n- Let $Ch$ be the number of students who take chemistry.\n- Let $C \\cap P$ be the number of students who take both calculus and physics.\n- Let $C \\cap Ch$ be the number of students who take both calculus and chemistry.\n- Let $P \\cap Ch$ be the number "
+      },
+      {
+        "gold": "6",
+        "ok": true,
+        "out": "We can start by converting Drinkets to Blinkets. Since 3 Blinkets are equal to 7 Drinkets, we can set up a proportion to find the number of Blinkets in 56 Drinkets:\n\n\\[\\frac{3 \\text{ Blinkets}}{7 \\text{ Drinkets}} = \\frac{x \\text{ Blinkets}}{56 \\text{ Drinkets}}\\]\n\nSolving for $x$, we get:\n\n\\[x = \\frac{3 \\text{ Blinkets}}{7 \\text{ Drinkets}} \\times 56 \\text{ Drinkets} = 24 \\text{ Blinkets}\\]\n\nNow "
+      },
+      {
+        "gold": "90",
+        "ok": true,
+        "out": "There are 10 choices for Yann's meal, and then 9 choices for Camille's meal, so there are $10 \\times 9 = 90$ different combinations of meals.\n\nTherefore, the answer is $\\boxed{90}$.\n"
+      },
+      {
+        "gold": "\\frac{1997}{2}",
+        "ok": false,
+        "out": "We have that\n\\begin{align*}\n\\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1997}} &= \\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1996}} + \\frac{1}{1 + \\omega^{1997}} \\\\\n&= \\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\frac{1}{1 + \\omega^{1996}} + \\frac{1}{1 + 1} \\\\\n&= \\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} + \\dots + \\"
+      },
+      {
+        "gold": "\\frac 59",
+        "ok": false,
+        "out": "We have that\n\\begin{align*}\n0.\\overline{7} &= \\frac{7}{9}, \\\\\n0.\\overline{4} &= \\frac{4}{9}, \\\\\n0.\\overline{2} &= \\frac{2}{9}.\n\\end{align*}Therefore,\n\\begin{align*}\n0.\\overline{7} - 0.\\overline{4} + 0.\\overline{2} &= \\frac{7}{9} - \\frac{4}{9} + \\frac{2}{9} \\\\\n&= \\frac{5}{9}.\n\\end{align*}Thus, the answer is $\\boxed{\\frac{5}{9}}$.\n"
+      },
+      {
+        "gold": "16",
+        "ok": true,
+        "out": "Let $b$ be the number of blue marbles and $y$ be the number of yellow marbles in the bag before I add more.\n\nThe ratio of blue marbles to yellow marbles is 4:3, so we can write the equation:\n\n$$\\frac{b}{y} = \\frac{4}{3}$$\n\nIf I add 5 blue marbles and remove 3 yellow marbles, the ratio will be 7:3. So we can write another equation:\n\n$$\\frac{b+5}{y-3} = \\frac{7}{3}$$\n\nWe can solve for $b$ and $y$ by"
+      },
+      {
+        "gold": "18+2\\pi",
+        "ok": false,
+        "out": "We can see that the perimeter of $S$ is the sum of the perimeter of the nonagon and the perimeter of the circle with radius $1$ centered at each vertex of the nonagon.  The perimeter of the nonagon is $18 \\cdot 2 = 36$ units.  The perimeter of each circle is $2 \\pi \\cdot 1 = 2 \\pi$ units.  Since there are $9$ vertices, the total perimeter of the circles is $9 \\cdot 2 \\pi = 18 \\pi$ units.  Therefor"
+      },
+      {
+        "gold": "7\\pi",
+        "ok": false,
+        "out": "The area of the largest circle is $\\pi(7^2) = 49\\pi.$  The area of the middle circle is $\\pi(6^2) = 36\\pi.$  The area of the smallest circle is $\\pi(4^2) = 16\\pi.$  The area of the region $X$ is the area of the middle circle minus the area of the smallest circle, which is $36\\pi - 16\\pi = 20\\pi.$  The area of the region $Y$ is the area of the largest circle minus the area of the middle circle, whi"
+      },
+      {
+        "gold": "129",
+        "ok": false,
+        "out": "The sequence is 0, 1, 1, 3, 6, 9, 27, 36, 45, 54, 63, 72, 81, 90, 99, 108, 117, 126, 135, 144, 153, 162, 171, 180, 189, 198, 207, 216, 225, 234, 243, 252, 261, 270, 279, 288, 297, 306, 315, 324, 333, 342, 351, 360, 369, 378, 387, 396, 405, 414, 423, 432, 441, 450, 459, 468, 477, 486, 495, 504, 513, 522, 531, 540, 549, 558, 567, 576, 585, 594, 603, 612, 621, 630, 639, 648, 657, 666, 675, 684, 693, "
+      },
+      {
+        "gold": "36",
+        "ok": false,
+        "out": "Let $t$ be the number of seconds after which the two gears next have both their marks pointing due north.  Then the first gear turns $33\\frac{1}{3}t$ times, and the second gear turns $45t$ times.  Since the gears turn in multiples of $360^\\circ$, we have\n\\begin{align*}\n33\\frac{1}{3}t &= 360^\\circ \\cdot a \\\\\n45t &= 360^\\circ \\cdot b\n\\end{align*}for some integers $a$ and $b$.  Dividing the first equ"
+      },
+      {
+        "gold": "11",
+        "ok": false,
+        "out": "We can factor the equation as\n\\begin{align*}\nz^4 + 4z^3i - 6z^2 - 4zi - i &= (z^2 + 2z + 1)(z^2 + 2z - 1) \\\\\n&= (z + 1)^2(z^2 + 2z - 1) \\\\\n&= (z + 1)^2(z + 1 + \\sqrt{2})(z + 1 - \\sqrt{2}).\n\\end{align*}The solutions are $z = -1,$ $z = -1 + \\sqrt{2},$ and $z = -1 - \\sqrt{2}.$  These points form a triangle with side lengths $2,$ $2\\sqrt{2},$ and $2\\sqrt{3}.$  The area of this triangle is\n\\[\\frac{1}{2"
+      },
+      {
+        "gold": "5.4 \\text{ cents}",
+        "ok": false,
+        "out": "To find the average price of Juan's 70s stamps, we need to follow these steps:\n\n1. **Identify the number of stamps from each country in the 70s:**\n   - Brazil: 12 stamps\n   - France: 12 stamps\n   - Peru: 6 stamps\n   - Spain: 13 stamps\n\n2. **Calculate the total number of stamps from the 70s:**\n   \\[\n   12 + 12 + 6 + 13 = 43\n   \\]\n\n3. **Determine the cost of each type of stamp:**\n   - Brazil: 6 cent"
+      },
+      {
+        "gold": "5",
+        "ok": false,
+        "out": "To find the number of digits that repeat in the decimal representation of $\\frac{31}{11111},$ we can use long division.\n\n\\begin{align*}\n\\frac{31}{11111} &= 0.00278787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787"
+      },
+      {
+        "gold": "1+2\\sqrt{3}",
+        "ok": false,
+        "out": "The plane cuts the tetrahedron into two pieces, one of which is a smaller tetrahedron with side length 1. The surface area of this smaller tetrahedron is $4 \\cdot \\frac{1}{2} \\cdot 1 \\cdot 1 = 2$.\n\nThe other piece is a frustum of a tetrahedron with a smaller tetrahedron cut off from one of its vertices. The surface area of this frustum is the surface area of the original tetrahedron minus the surf"
+      },
+      {
+        "gold": "14",
+        "ok": false,
+        "out": "To find the least possible sum of distinct positive integers whose product is 84, we start by finding the prime factorization of 84. The prime factorization of 84 is:\n\n\\[84 = 2^2 \\times 3 \\times 7\\]\n\nWe need to express 84 as a product of distinct positive integers and find the combination that gives the smallest sum. We will consider different ways to combine these prime factors into distinct inte"
+      },
+      {
+        "gold": "12",
+        "ok": false,
+        "out": "We have that\n\\begin{align*}\n(Ax-8)(Bx+3) &= ABx^2 + (3A - 8B)x - 24 \\\\\n&= 10x^2 - x - 24.\n\\end{align*}Comparing coefficients, we see that $AB = 10$ and $3A - 8B = -1$.  Since $AB = 10$, we can try the possible values of $A$ and $B$:\n\\begin{align*}\nA &= 1, B = 10 \\\\\nA &= 2, B = 5 \\\\\nA &= 5, B = 2 \\\\\nA &= 10, B = 1.\n\\end{align*}We can check each of these possibilities to see which one satisfies $3A "
+      },
+      {
+        "gold": "10",
+        "ok": true,
+        "out": "To find the length of the hallway, we need to first find the speed of the robot. We know that the robot takes 2.5 hours to travel 1 kilometer, so its speed is:\n\n$$\\text{Speed} = \\frac{\\text{Distance}}{\\text{Time}} = \\frac{1 \\text{ km}}{2.5 \\text{ hours}} = 0.4 \\text{ km/h}$$\n\nNow we can use this speed to find the length of the hallway. We know that the robot takes 90 seconds to travel the length o"
+      },
+      {
+        "gold": "4",
+        "ok": true,
+        "out": "The volume of a cylinder is given by the formula $V = \\pi r^2 h$, where $r$ is the radius and $h$ is the height.  The volume of a sphere is given by the formula $V = \\frac{4}{3} \\pi r^3$, where $r$ is the radius.\n\nThe volume of one beaker is $\\pi (3)^2 (8) = 72 \\pi$ cubic centimeters.\n\nThe volume of the spherical tank is $\\frac{4}{3} \\pi (6)^3 = 288 \\pi$ cubic centimeters.\n\nTherefore, it will take"
+      },
+      {
+        "gold": "15",
+        "ok": false,
+        "out": "Since $P(x)$ is a monic polynomial of degree 3, we can write it as $P(x) = x^3 + ax^2 + bx + c$.\n\nWhen $P(x)$ is divided by $(x - 1)(x - 4)$, the remainder is $R(x) = d + ex + f$.  Since $P(x)$ is a cubic polynomial, we can write $P(x) = (x - 1)(x - 4)Q(x) + R(x)$ for some polynomial $Q(x)$.  Then $P(1) = R(1) = d + e + f$ and $P(4) = R(4) = d + 4e + f$.\n\nWhen $P(x)$ is divided by $(x - 2)(x - 3)$"
+      },
+      {
+        "gold": "\\frac{13}{6}",
+        "ok": false,
+        "out": "We can simplify the expression by first simplifying the numerator and denominator separately.\n\nThe numerator is $\\dfrac{5}{\\sqrt{80}}+\\dfrac{\\sqrt{845}}{9}+\\sqrt{45}$. We can simplify each term separately:\n\n$\\dfrac{5}{\\sqrt{80}} = \\dfrac{5}{\\sqrt{16 \\cdot 5}} = \\dfrac{5}{4\\sqrt{5}} = \\dfrac{5}{4\\sqrt{5}} \\cdot \\dfrac{\\sqrt{5}}{\\sqrt{5}} = \\dfrac{5\\sqrt{5}}{20} = \\dfrac{\\sqrt{5}}{4}$\n\n$\\dfrac{\\sqrt"
+      },
+      {
+        "gold": "2",
+        "ok": true,
+        "out": "We can rewrite the given equation as\n\\[xyz(x + y + z) = 1.\\]By AM-GM,\n\\[(x + y)(y + z) \\ge 2 \\sqrt{xy(y + z)} = 2 \\sqrt{xy(y + z) \\cdot \\frac{xyz}{xyz}} = 2 \\sqrt{xyz(x + y + z)} = 2 \\sqrt{1} = 2.\\]Equality occurs when $x = y = z = 1,$ so the minimum value is $2.$\n\nTherefore, the minimum value is $\\boxed{2}.$\n"
+      },
+      {
+        "gold": "4343_6",
+        "ok": true,
+        "out": "We can convert $999_{10}$ to base six by repeatedly dividing by $6$ and keeping track of the remainders.\n\n\\begin{align*}\n999 \\div 6 &= 166 \\text{ remainder } 3 \\\\\n166 \\div 6 &= 27 \\text{ remainder } 4 \\\\\n27 \\div 6 &= 4 \\text{ remainder } 3 \\\\\n4 \\div 6 &= 0 \\text{ remainder } 4 \\\\\n\\end{align*}\n\nReading the remainders from bottom to top, we get $999_{10} = 4343_6$.\n\nTherefore, the base six equivalen"
+      },
+      {
+        "gold": "58,500",
+        "ok": true,
+        "out": "There are 26 choices for the first letter, and 25 choices for the second letter.  There are 10 choices for the first digit, and 9 choices for the second digit.  Therefore, there are $26 \\times 25 \\times 10 \\times 9 = 58500$ possible license plates.\n\nTherefore, the answer is $\\boxed{58500}$.\n"
+      },
+      {
+        "gold": "66",
+        "ok": false,
+        "out": "We have $\\sqrt[3]{x^2 - 4x + 4} = 16$.  Cubing both sides, we get $x^2 - 4x + 4 = 16^3 = 4096$.  Then $x^2 - 4x - 4092 = 0$.  This factors as $(x - 64)(x + 64) = 0$.  The only positive solution is $x = \\boxed{64}$.\n"
+      },
+      {
+        "gold": "10080",
+        "ok": false,
+        "out": "We can arrange the 8 people in a circle in $(8-1)! = 7!$ ways.  However, we have counted each arrangement 4 times, since we can rotate the circle in 4 different ways.  Therefore, the number of ways to arrange the 8 people around the square table is $\\frac{7!}{4} = \\boxed{2520}$.\n"
+      },
+      {
+        "gold": "4",
+        "ok": false,
+        "out": "We have $54 = xy$, where $x \\geq 2$ and $y \\geq 5$.  The possible values of $x$ are the divisors of $54$ that are at least $2$.  The divisors of $54$ are $1, 2, 3, 6, 9, 18, 27, 54$.  The divisors that are at least $2$ are $2, 3, 6, 9, 18, 27, 54$.  There are $7$ such divisors.\n\nTherefore, there are $\\boxed{7}$ possible values of $x$.\n"
+      },
+      {
+        "gold": "6",
+        "ok": false,
+        "out": "We are given that $xyz = 4$ and $x^3 + y^3 + z^3 = 4.$  We also know that\n\\[x^3 + y^3 + z^3 - 3xyz = (x + y + z)(x^2 + y^2 + z^2 - xy - yz - zx).\\]Since $x^3 + y^3 + z^3 = 4$ and $xyz = 4,$\n\\[x^3 + y^3 + z^3 - 3xyz = 4 - 3 \\cdot 4 = -8.\\]Hence,\n\\[(x + y + z)(x^2 + y^2 + z^2 - xy - yz - zx) = -8.\\]We also know that\n\\[x^2 + y^2 + z^2 - xy - yz - zx = \\frac{1}{2} \\left( (x - y)^2 + (y - z)^2 + (z - x"
+      },
+      {
+        "gold": "\\frac{7}{4}",
+        "ok": true,
+        "out": "The direction vector of the line is $\\begin{pmatrix} -7 \\\\ b \\end{pmatrix}.$  The direction vector of the line passing through $(-5,4)$ and $(-1,3)$ is $\\begin{pmatrix} -1 - (-5) \\\\ 3 - 4 \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix}.$  Since the direction vectors are parallel, there is some scalar $k$ such that\n\\[\\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix} = k \\begin{pmatrix} -7 \\\\ b \\end{pmatr"
+      },
+      {
+        "gold": "4",
+        "ok": false,
+        "out": "We can rewrite the sum as\n\\begin{align*}\n&1+3+5+7+9+\\dots+195+197+199 \\\\\n&= (1+3+5+7+9+\\dots+195) + (197+199) \\\\\n&= (1+3+5+7+9+\\dots+195) + 396.\n\\end{align*}The sum $1+3+5+7+9+\\dots+195$ is the sum of the first $100$ odd numbers.  The sum of the first $n$ odd numbers is $n^2,$ so the sum of the first $100$ odd numbers is $100^2 = 10000.$  Therefore, the sum $1+3+5+7+9+\\dots+195+197+199$ is $10000 "
+      },
+      {
+        "gold": "1+2i",
+        "ok": true,
+        "out": "We have that\n\\begin{align*}\n\\frac{-3+4i}{1+2i} &= \\frac{(-3+4i)(1-2i)}{(1+2i)(1-2i)} \\\\\n&= \\frac{-3+6i+4i-8i^2}{1-4i^2} \\\\\n&= \\frac{-3+10i+8}{1+4} \\\\\n&= \\frac{5+10i}{5} \\\\\n&= 1+2i.\n\\end{align*}\n\nTherefore, William's answer should have been $\\boxed{1+2i}$.\n"
+      },
+      {
+        "gold": "6",
+        "ok": false,
+        "out": "We have $4\\$ = 4!^{4!^{4!^{4!}}} = 24^{24^{24^{24}}}$.  The units digit of $24$ is $4$, so the units digit of $24^{24^{24^{24}}}$ is the same as the units digit of $4^{24^{24^{24}}}$.  The units digit of $4$ is $4$, so the units digit of $4^{24^{24^{24}}}$ is the same as the units digit of $4^{24^{24}}$.  The units digit of $4$ is $4$, so the units digit of $4^{24^{24}}$ is the same as the units d"
+      },
+      {
+        "gold": "12",
+        "ok": true,
+        "out": "To find the grade in which the number of male bus riders is closest to $135\\%$ of the number of female bus riders, we need to calculate the ratio of male bus riders to female bus riders for each grade and compare it to $135\\%$.\n\nFor the $9^{\\mathrm{th}}$ grade, the ratio of male bus riders to female bus riders is $\\frac{41.1\\%}{39.4\\%} \\approx 1.042$. This is $104.2\\%$ of the number of female bus "
+      },
+      {
+        "gold": "\\frac{11}{2}",
+        "ok": true,
+        "out": "We have that\n\\begin{align*}\n(x-3)^2-(x-8)^2 &= (x-3+x-8)(x-3-x+8) \\\\\n&= (2x-11)(5) \\\\\n&= 10x-55.\n\\end{align*}Thus, the expression under the square root is nonnegative when $10x-55 \\ge 0,$ or $x \\ge \\frac{55}{10} = 5.5.$  Therefore, the smallest real number $x$ in the domain of $g(x)$ is $\\boxed{5.5}.$\n"
+      },
+      {
+        "gold": "12",
+        "ok": false,
+        "out": "We want to minimize the distance between the origin and a point on the graph of $y=\\frac{1}{\\sqrt{2}}\\left(x^2-3\\right)$.  The distance between the origin and a point $(x,y)$ is given by the formula $\\sqrt{x^2+y^2}$.  Substituting $y=\\frac{1}{\\sqrt{2}}\\left(x^2-3\\right)$ into this formula, we get\n\\[\\sqrt{x^2+\\left(\\frac{1}{\\sqrt{2}}\\left(x^2-3\\right)\\right)^2} = \\sqrt{x^2+\\frac{1}{2}\\left(x^2-3\\ri"
+      },
+      {
+        "gold": "4",
+        "ok": true,
+        "out": "We have\n\\begin{align*}\n\\left(16\\sqrt[3]{a^2}\\right)^{\\frac 13} &= \\left(16\\sqrt[3]{8^2}\\right)^{\\frac 13} \\\\\n&= \\left(16\\sqrt[3]{64}\\right)^{\\frac 13} \\\\\n&= \\left(16\\cdot 4\\right)^{\\frac 13} \\\\\n&= 64^{\\frac 13} \\\\\n&= 4.\n\\end{align*}\n"
+      },
+      {
+        "gold": "406",
+        "ok": false,
+        "out": "We are given that $x^2 - 2x + 2 \\le P(x) \\le 2x^2 - 4x + 3$ for all real numbers $x$.  Since $P(x)$ is a quadratic polynomial, we can write it in the form $P(x) = ax^2 + bx + c$.  Then\n\\begin{align*}\nx^2 - 2x + 2 &\\le ax^2 + bx + c \\le 2x^2 - 4x + 3, \\\\\nx^2 - 2x + 2 &\\le ax^2 + bx + c \\le 2x^2 - 4x + 3, \\\\\nx^2 - 2x + 2 &\\le ax^2 + bx + c \\le 2x^2 - 4x + 3, \\\\\nx^2 - 2x + 2 &\\le ax^2 + bx + c \\le 2x"
+      },
+      {
+        "gold": "5r^5",
+        "ok": true,
+        "out": "We can simplify the expression by multiplying the numerators and dividing by the denominator:\n\n\\begin{align*}\n\\frac{(10r^3)(4r^6)}{8r^4} &= \\frac{40r^9}{8r^4} \\\\\n&= \\frac{40}{8} \\cdot \\frac{r^9}{r^4} \\\\\n&= 5 \\cdot r^5 \\\\\n&= 5r^5.\n\\end{align*}\n\nTherefore, the simplified expression is $\\boxed{5r^5}$.\n"
+      },
+      {
+        "gold": "10",
+        "ok": false,
+        "out": "We have\n\\begin{align*}\n(3)5^2-4(5-a)^2 \\div 3&=63\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)5^2-4(5-a)^2&=189\\\\\n(3)"
+      },
+      {
+        "gold": "600",
+        "ok": true,
+        "out": "We are given that $y$ varies inversely as $\\sqrt x$, which means that $y=\\frac{k}{\\sqrt x}$ for some constant $k$. We are also given that when $x=24$, $y=15$. We can use this information to find the value of $k$:\n\\begin{align*}\n15&=\\frac{k}{\\sqrt 24}\\\\\n\\Rightarrow\\qquad k&=15\\sqrt 24\\\\\n&=15\\sqrt{4\\cdot 6}\\\\\n&=15\\cdot 2\\sqrt 6\\\\\n&=30\\sqrt 6\n\\end{align*}Now we can use this value of $k$ to find $x$ w"
+      },
+      {
+        "gold": ".35625",
+        "ok": true,
+        "out": "To convert $\\frac{57}{160}$ to a terminating decimal, we can use long division.\n\n\\begin{align*}\n\\frac{57}{160} &= 0.35625 \\\\\n\\end{align*}\n\nTherefore, the answer is $\\boxed{0.35625}$.\n"
+      },
+      {
+        "gold": "\\frac{1}{2}",
+        "ok": false,
+        "out": "The region closer to $O$ than to any of the four vertices is the intersection of the four regions closer to $O$ than to each of the four vertices.  The region closer to $O$ than to $A$ is the interior of the circle with center $O$ and radius $OA$.  Similarly, the region closer to $O$ than to $B$ is the interior of the circle with center $O$ and radius $OB$, and so on.  The intersection of these fo"
+      },
+      {
+        "gold": "15",
+        "ok": false,
+        "out": "The equation of the circle is $x^2 + y^2 = 2.$  The equation of the parabola is $y^2 = 8x.$  The slope of the tangent line to the circle at a point $(x,y)$ is $-\\frac{x}{y}.$  The slope of the tangent line to the parabola at a point $(x,y)$ is $\\frac{4}{y}.$  The slope of the tangent line to the circle at a point $(x,y)$ is also equal to the slope of the line connecting $(x,y)$ to the center of th"
+      },
+      {
+        "gold": "9",
+        "ok": true,
+        "out": "Let $g$ be the number of girls and $b$ be the number of boys. We know that $g+b=35$ and $g$ is a multiple of 13. Since there are more girls than boys, $g>b$. We can start by listing the multiples of 13 that are less than 35: 13, 26. If $g=13$, then $b=22$, but this does not satisfy the condition that there are more girls than boys. If $g=26$, then $b=9$, which does satisfy the condition. Therefore"
+      },
+      {
+        "gold": "y = 2x + 3",
+        "ok": false,
+        "out": "Let $\\mathbf{M} = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}.$  Then\n\\[\\mathbf{M} \\begin{pmatrix} 2 \\\\ -1 \\end{pmatrix} = \\begin{pmatrix} 9 \\\\ 3 \\end{pmatrix} = \\begin{pmatrix} 2a - b \\\\ 2c - d \\end{pmatrix},\\]and\n\\[\\mathbf{M} \\begin{pmatrix} 1 \\\\ -3 \\end{pmatrix} = \\begin{pmatrix} 7 \\\\ -1 \\end{pmatrix} = \\begin{pmatrix} a - 3b \\\\ c - 3d \\end{pmatrix}.\\]Then\n\\begin{align*}\n2a - b &= 9, \\\\\n2c - d"
+      },
+      {
+        "gold": "-2,1",
+        "ok": false,
+        "out": "By the Rational Root Theorem, the possible integer roots are $\\pm 1, \\pm 2, \\pm 7, \\pm 14.$  We can check that $x = 1$ is a root, so we can factor the polynomial as\n\\[x^4 + 5x^3 + 9x^2 - x - 14 = (x - 1)(x^3 + 6x^2 + 15x + 14).\\]We can check that $x = -2$ is a root, so we can factor the polynomial as\n\\[x^4 + 5x^3 + 9x^2 - x - 14 = (x - 1)(x + 2)(x^2 + 4x + 7).\\]The quadratic $x^2 + 4x + 7$ has no "
+      },
+      {
+        "gold": "9",
+        "ok": false,
+        "out": "We have that $\\log_6 (x-y) + \\log_6 (x+y) = 2$.  This means that $\\log_6 (x^2 - y^2) = 2$, so $x^2 - y^2 = 6^2 = 36$.\n\nWe also have that $\\log_y 5x = 2$.  This means that $y^2 = 5x$.\n\nWe can solve for $x$ in terms of $y$ in the second equation: $x = \\frac{y^2}{5}$.\n\nSubstituting this into the first equation, we get $\\left( \\frac{y^2}{5} \\right)^2 - y^2 = 36$.  This simplifies to $\\frac{y^4}{25} - "
+      },
+      {
+        "gold": "27648",
+        "ok": false,
+        "out": "We can use the AM-GM inequality to find the maximum value of $ab^2 c^3 d^4.$  We have that\n\\begin{align*}\nab^2 c^3 d^4 &= \\frac{1}{10} \\cdot \\frac{2}{10} \\cdot \\frac{3}{10} \\cdot \\frac{4}{10} \\cdot 10^4 \\\\\n&\\le \\left( \\frac{1}{10} + \\frac{2}{10} + \\frac{3}{10} + \\frac{4}{10} \\right)^4 \\\\\n&= 1^4 = 1.\n\\end{align*}Equality occurs when $a = \\frac{1}{10},$ $b = \\frac{2}{10},$ $c = \\frac{3}{10},$ and $d"
+      },
+      {
+        "gold": "\\frac{2}{1005}",
+        "ok": false,
+        "out": "We can rewrite the equation as\n\\[\\frac{1}{(x - 1)(x + 1)} + \\frac{2}{(x - \\sqrt{2})(x + \\sqrt{2})} + \\frac{3}{(x - \\sqrt{3})(x + \\sqrt{3})} + \\frac{4}{(x - 2)(x + 2)} = 2010x - 4.\\]The left-hand side is a rational function, and the right-hand side is a linear function.  The only way these two functions can be equal is if the left-hand side is a constant function, and the right-hand side is also a "
+      },
+      {
+        "gold": "1",
+        "ok": true,
+        "out": "Since $\\omega^3 = 1,$ $\\omega$ is a cube root of unity.  The cube roots of unity are $1,$ $\\omega,$ and $\\omega^2,$ where $\\omega = e^{2 \\pi i / 3} = -\\frac{1}{2} + i \\frac{\\sqrt{3}}{2}.$\n\nWe can write\n\\begin{align*}\n\\frac{1}{1 + \\omega} + \\frac{1}{1 + \\omega^2} &= \\frac{1 + \\omega^2 + 1 + \\omega}{(1 + \\omega)(1 + \\omega^2)} \\\\\n&= \\frac{2 + \\omega + \\omega^2}{1 + \\omega + \\omega^2 + \\omega^3} \\\\\n&"
+      },
+      {
+        "gold": "\\frac{8}{15}",
+        "ok": false,
+        "out": "We have that\n\\begin{align*}\n\\tan A &= \\frac{\\sin A}{\\cos A} \\\\\n&= \\frac{\\frac{1}{2}bc}{\\frac{1}{2}ab} \\\\\n&= \\frac{c}{b}.\n\\end{align*}We also have that\n\\begin{align*}\n\\sin A &= \\frac{1}{2}bc \\\\\n&= \\frac{1}{2} \\cdot \\frac{1}{2} \\cdot 2bc \\\\\n&= \\frac{1}{2} \\cdot \\frac{1}{2} \\cdot 2 \\cdot \\frac{1}{2} \\cdot 2bc \\\\\n&= \\frac{1}{2} \\cdot \\frac{1}{2} \\cdot \\frac{1}{2} \\cdot 2bc \\\\\n&= \\frac{1}{2} \\cdot \\fra"
+      },
+      {
+        "gold": "216",
+        "ok": true,
+        "out": "The sphere is inscribed in the cube, so the diameter of the sphere is equal to the side length of the cube. The diameter of the sphere is $2 \\times 3 = 6$ inches, so the side length of the cube is 6 inches. The volume of the cube is $6^3 = 216$ cubic inches.\n\nTherefore, the answer is $\\boxed{216}$ cubic inches.\n"
+      },
+      {
+        "gold": "14",
+        "ok": false,
+        "out": "We can write $f(x)$ as\n\\begin{align*}\nf(x) &= 2(x-r_1)(x-r_2)\\cdots(x-r_n) \\\\\n&= 2x^n - 2(r_1+r_2+\\cdots+r_n)x^{n-1} + \\cdots + (-1)^n2r_1r_2\\cdots r_n.\n\\end{align*}Since $a_0=66$, we have $r_1r_2\\cdots r_n=33$.  The prime factorization of 33 is $3\\cdot11$, so the only possible values for $r_1,r_2,\\ldots,r_n$ are $\\pm1,\\pm3,\\pm11$.  The sum of the roots is $r_1+r_2+\\cdots+r_n$, so the possible val"
+      },
+      {
+        "gold": "\\frac{5}{13}",
+        "ok": false,
+        "out": "We have that\n\\begin{align*}\nw &= \\frac{3z+1}{5z+7} \\\\\n&= \\frac{3(1+i)+1}{5(1+i)+7} \\\\\n&= \\frac{4+3i}{12+5i} \\\\\n&= \\frac{(4+3i)(12-5i)}{(12+5i)(12-5i)} \\\\\n&= \\frac{48-20i+36i-15i^2}{144-25i^2} \\\\\n&= \\frac{48+16i+15}{144+25} \\\\\n&= \\frac{63+16i}{169} \\\\\n&= \\frac{63}{169} + \\frac{16}{169}i.\n\\end{align*}Then\n\\begin{align*}\n|w| &= \\sqrt{\\left(\\frac{63}{169}\\right)^2 + \\left(\\frac{16}{169}\\right)^2} \\\\\n&"
+      }
+    ]
+  }
+}

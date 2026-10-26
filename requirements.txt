@@ -1,0 +1,17 @@
+# DynaLoop — minimum runtime requirements.
+#
+# Tested on: Python 3.10 / torch 2.x / CUDA 12.x, single 8 GB laptop GPU.
+# Everything below the "evaluation" line is only needed to run the scripts
+# in ``scripts/``; the library itself needs torch + transformers + numpy.
+torch>=2.1
+transformers>=4.40
+numpy>=1.24
+
+# ---- evaluation -------------------------------------------------------
+pandas>=2.0          # parquet loaders in dynaloop/eval/datasets.py
+pyarrow>=14.0        # pandas.read_parquet backend
+accelerate>=0.28     # Ouro-1.4B low-level loading path
+
+# ---- optional ---------------------------------------------------------
+matplotlib>=3.7      # scripts/make_figures.py, examples/budget_heatmap.py
+lm_eval>=0.4         # only if you want the official harness instead of ours

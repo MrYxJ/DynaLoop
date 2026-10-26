@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Experiment output
+logs/
+wandb/
+*.log
+
+# Large / regenerable artefacts
+results/*.npz
+results/*.pkl
+docs/figures/*.pdf
+
+# Data: keep by default so a fresh clone can evaluate offline.
+# Uncomment the next two lines if you would rather ship a slim repo and let
+# `python scripts/fetch_datasets.py` populate it.
+# data/
+# *.parquet
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

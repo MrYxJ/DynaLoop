@@ -1,0 +1,168 @@
+{
+ "harness": "lm-eval==0.4.13 (EleutherAI LM Harness)",
+ "mode": "dynaloop",
+ "config": "DynaLoop(K=1, rho=0.55, ws=64, b_min=0.02, m=1, c=5, decay=1.0, min_prompt=192)",
+ "model": "D:/Code/models/Ouro-1.4B",
+ "n": 100,
+ "nshot": 6,
+ "seed": 42,
+ "target_prompt_tokens": 1000,
+ "gen_toks": 512,
+ "batch": 4,
+ "max_gen_toks": 512,
+ "per_loop_retention": {
+  "loop1": 1.0,
+  "loop2": 0.5342,
+  "loop3": 0.1534,
+  "loop4": 0.1498
+ },
+ "wall_s": 4911.8,
+ "peak_mem_GiB": 5.785,
+ "kv_MiB_per_sample": 396.73,
+ "decode_ms_per_step": 328.0,
+ "results": {
+  "gsm8k_local": {
+   "name": "gsm8k_local",
+   "alias": "gsm8k_local",
+   "sample_len": 100,
+   "exact_match,none": 0.79,
+   "exact_match_stderr,none": 0.040936018074033236
+  }
+ },
+ "samples": {
+  "gsm8k_local": [
+   {
+    "gold": "18",
+    "ok": false,
+    "out": "Let's call the number of vacuum cleaners Melanie started with x.\nShe sold a third of them at the green house, so she sold x/3 vacuum cleaners.\nShe sold 2 more to the red house, so she sold 2 vacuum cleaners.\nShe sold half of what was left at the orange house, so she sold (x - x/3 - 2)/2 vacuum cleaners.\nShe has 5 vacuum cleaners left, so the total number of vacuum cleaners she sold is x - 5.\nWe ca"
+   },
+   {
+    "gold": "5",
+    "ok": true,
+    "out": "Tom's ship can travel at 10 miles per hour.  He is sailing from 1 to 4 PM.  He then travels back at a rate of 6 mph.  How long does it take him to get back?\n\nLet's break down the problem into smaller parts.\n\nFirst, we need to find out how far Tom's ship travels in the first part of the journey. We know that he travels at a rate of 10 miles per hour and that he starts at 1 PM and ends at 4 PM. This"
+   },
+   {
+    "gold": "40",
+    "ok": true,
+    "out": "Patchy has had 3 * 7 = 21 kittens.\nTrixie has had 12 kittens.\nThe Doubtfire family now has 7 + 21 + 12 = 40 kittens.\nThe answer is 40.\n"
+   },
+   {
+    "gold": "1430",
+    "ok": false,
+    "out": "The cost of the material is $500.\nThe cost of the jeweler is $800.\nThe cost of the insurance is 10% of $800, which is $80.\nThe total cost is $500 + $800 + $80 = $1380.\nThe answer is 1380.\n"
+   },
+   {
+    "gold": "36",
+    "ok": true,
+    "out": "Jim spends 2 hours watching TV and then reads for half as long, which is 1 hour.\nSo he spends a total of 2 + 1 = 3 hours on TV and reading each time.\nHe does this 3 times a week, so he spends 3 * 3 = 9 hours on TV and reading each week.\nIn 4 weeks, he spends 9 * 4 = 36 hours on TV and reading.\nThe answer is 36.\n"
+   },
+   {
+    "gold": "8000",
+    "ok": true,
+    "out": "Let x be the number of copies Harald sold.\nMarilyn sold 10x copies.\nTogether they sold x + 10x = 11x copies.\nWe know that 11x = 88,000.\nSo x = 88,000 / 11 = 8,000.\nHarald sold 8,000 copies.\nThe answer is 8,000.\n"
+   },
+   {
+    "gold": "36",
+    "ok": false,
+    "out": "Lee runs the 400-meter hurdles in 38 seconds.\nGerald's speed improved by 10%, so he can run the 400-meter hurdles in 38 / 1.1 = 34.545454545454545 seconds.\nThe answer is 34.545454545454545.\n"
+   },
+   {
+    "gold": "6",
+    "ok": true,
+    "out": "If Jamal's phone can hold 1800 photographs, then Brittany's phone can hold 1800/6 = 300 photographs.\nThe maximum number of photographs that Brittany's phone can hold is 50 times more than the number of birds in Jamal's photograph of the ducks at the zoo.\nSo the number of birds in Jamal's photograph of the ducks at the zoo is 300/50 = 6.\nThe answer is 6.\n"
+   },
+   {
+    "gold": "40",
+    "ok": true,
+    "out": "Brian has 20 - 5 = 15 video games.\nBobby has 3 * 15 - 5 = 40 video games.\nThe answer is 40.\n"
+   },
+   {
+    "gold": "140",
+    "ok": true,
+    "out": "Jordan plays video games for 2 hours every day.\nHe earns $10 an hour.\nIn one week, he would earn 2 hours/day * 7 days/week * $10/hour = $140.\nThe answer is 140.\n"
+   },
+   {
+    "gold": "2125",
+    "ok": true,
+    "out": "The first box has 500 pieces.\nThe second box has 3 times more pieces than the first box, so it has 3 * 500 = 1500 pieces.\nThe third box has 1/4 the number of pieces as the first box, so it has 500 / 4 = 125 pieces.\nThe total number of pieces in all three boxes is 500 + 1500 + 125 = 2125 pieces.\nAnswer: 2125\n"
+   },
+   {
+    "gold": "32",
+    "ok": true,
+    "out": "Anakin caught 10 starfish, 6 sea horses, and 3 clownfish.\nLocsin caught 5 fewer starfish than Anakin, so Locsin caught 10 - 5 = 5 starfish.\nLocsin caught 3 fewer sea horses than Anakin, so Locsin caught 6 - 3 = 3 sea horses.\nLocsin caught 2 more clownfish than Anakin, so Locsin caught 3 + 2 = 5 clownfish.\nIn total, they caught 10 + 6 + 3 + 5 + 3 + 5 = 32 fish.\nThe answer is 32.\n"
+   },
+   {
+    "gold": "50",
+    "ok": false,
+    "out": "The doll cost as much as 3 action figures and one red car cost $4.\nSo the doll cost 3 * $5 + $4 = $19.\nThe total cost of all toys is 5 * $4 + 3 * $5 + $19 = $20 + $15 + $19 = $54.\nThe answer is 54.\n"
+   },
+   {
+    "gold": "122",
+    "ok": true,
+    "out": "Bo has 40 crabs.\nMonic has 4 fewer crabs than Bo, so Monic has 40 - 4 = 36 crabs.\nRani has ten more crabs than Monic, so Rani has 36 + 10 = 46 crabs.\nThe total number of crabs the three have together is 40 + 36 + 46 = 122 crabs.\nThe answer is 122.\n"
+   },
+   {
+    "gold": "34",
+    "ok": true,
+    "out": "The total cost of the tickets is $20.25.\nThe total cost of the food is $20.25 - $4.50 = $15.75.\nThe total cost of the rides is $33 x 2 = $66.\nThe total cost of all the expenses is $20.25 + $15.75 + $66 = $102.\nEach friend paid $102 / 3 = $34.\nThe answer is 34.\n"
+   },
+   {
+    "gold": "5",
+    "ok": true,
+    "out": "There are 10 ducks, so they need 10 * 3.5 = 35 pounds of insects per week.\nThere are 7 days in a week, so they need 35 / 7 = 5 pounds of insects per day.\nThe answer is 5.\n"
+   },
+   {
+    "gold": "320",
+    "ok": true,
+    "out": "In the first month, she collected 3 * 20 = 60 cards.\nIn the second month, she collected 60 - 20 = 40 cards.\nIn the third month, she collected 2 * (60 + 40) = 200 cards.\nIn total, she has 20 + 60 + 40 + 200 = 320 cards.\nThe answer is 320.\n"
+   },
+   {
+    "gold": "860",
+    "ok": true,
+    "out": "In the first 4 weeks, he rode 5 times a week for 25 kilometers each time, so he rode a total of 5 x 25 x 4 = 500 kilometers.\nIn the next 3 weeks, he rode 2 times a week for 60 kilometers each time, so he rode a total of 2 x 60 x 3 = 360 kilometers.\nIn total, he rode 500 + 360 = 860 kilometers.\nThe answer is 860.\n"
+   },
+   {
+    "gold": "145",
+    "ok": false,
+    "out": "The total cost of half a dozen plates is 6000 * 6 = 36000.\nThe total cost of twenty dozen cups is 36000 - 1200 = 34800.\nThe total cost of buying each cup is 34800 / 24 = 1450.\nThe answer is 1450.\n"
+   },
+   {
+    "gold": "1",
+    "ok": true,
+    "out": "Kalinda can place 4 pieces per minute.\nHer mom can place 2 pieces per minute.\nTogether, they can place 6 pieces per minute.\nTo complete the puzzle, they need to place 360 pieces.\nIt will take them 360 / 6 = 60 minutes to complete the puzzle.\n60 minutes is equal to 1 hour.\nThe answer is 1.\n"
+   },
+   {
+    "gold": "192",
+    "ok": false,
+    "out": "The total number of cows is 200.\nThe number of cows in 8 stalls is 8 * 20 = 160.\nThe answer is 160.\n"
+   },
+   {
+    "gold": "21",
+    "ok": true,
+    "out": "Her brother is 2 * 9 = 18 years old.\nIn 3 years, her brother will be 18 + 3 = 21 years old.\nThe answer is 21.\n"
+   },
+   {
+    "gold": "75",
+    "ok": false,
+    "out": "She works for 3 hours, which is 180 minutes.\nShe earns $5 every 10 minutes, so she earns $5 * 18 = $90.\nThe answer is 90.\n"
+   },
+   {
+    "gold": "123",
+    "ok": true,
+    "out": "The number of girls is 3 times the number of boys, so there are 3 * 30 = 90 girls.\nThe number of nongendered children is 1/10 of the number of boys, so there are 30 / 10 = 3 nongendered children.\nThe total number of children is the sum of the number of boys, girls, and nongendered children: 30 + 90 + 3 = 123.\nThe answer is 123.\n"
+   },
+   {
+    "gold": "14",
+    "ok": true,
+    "out": "At the first bus stop, 5 people got on.\nAt the second bus stop, 7 people got off and 8 people got on.\nSo the total number of people on the bus after the second bus stop is 5 + 8 - 7 = 6.\nSince there were a total of 20 people heading to the third stop, there must have been 20 - 6 = 14 people on the bus at the terminal.\nThe answer is 14.\n"
+   }
+  ]
+ },
+ "chunked": true,
+ "chunks": [
+  "lmeval_dynaloop_rho0.55_K1_n25_s42_s21_k50_gsm8k_p0.json",
+  "lmeval_dynaloop_rho0.55_K1_n25_s42_s21_k50_gsm8k_p1.json",
+  "lmeval_dynaloop_rho0.55_K1_n25_s42_s21_k50_gsm8k_p2.json",
+  "lmeval_dynaloop_rho0.55_K1_n25_s42_s21_k50_gsm8k_p3.json"
+ ]
+}
