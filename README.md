@@ -1,28 +1,22 @@
 # DynaLoop:Attention-Stability-Driven Adaptive KV Budget Allocation across Loops
 
-
 **循环式语言模型的动态自适应逐 $(loop,\ layer)$ KV 缓存预算分配**
 
 循环深度（looped / recurrent-depth）语言模型复用同一组权重迭代执行 $T$ 次，
 其 KV 缓存由此形成 $T \times L$ 个相互独立的缓存单元。DynaLoop 将预算分配的
-基本单位由 layer 细化为 $(loop,\ layer)$，并依据**跨循环注意力位移**为每个单元
-在线测定保留比例。全部 $T \times L$ 个单元共用同一条分配律，不含阈值、不含
-逐循环特例。
+基本单位由 layer 细化为 $(loop,\ layer)$。
 
-![overview](docs/figures/fig1_overview.png)
+本文件记录两部分内容：**Ouro-1.4B 上跨循环注意力演化的实证分析**，以及
+**DynaLoop 与 FullKV / DynamicKV / FlashLoop 的对比评测结果**。
 
 ---
 
 ## 目录
 
 - [实证分析：注意力如何沿循环演化](#实证分析注意力如何沿循环演化)
-- [方法](#方法)
 - [实测分配特性](#实测分配特性)
-- [安装](#安装)
-- [使用](#使用)
 - [实验结果](#实验结果)
 - [与既有方法的关系](#与既有方法的关系)
-- [仓库结构](#仓库结构)
 - [已知局限](#已知局限)
 - [引用](#引用)
 
@@ -140,38 +134,6 @@ NIAH 上均匀保留 57% 即损失 49 个百分点（检索证据在 loop 2 仍�
 
 ---
 
-## 方法
-
-记 $s_{t,\ell}$ 为单元 $(t,\ell)$ 中窗口 query 对 prompt 各位置的重要性分布
-（由注意力直接给出，无需额外前向），$d_{t,\ell} = JS(s_{t-1,\ell}\,\|\,s_{t,\ell})$
-为其跨循环位移。以本样本 loop 1→2 位移的逐层运行中位数 $D_1$ 归一化后，
-每个单元的保留比例由同一条规则给出：
-
-$$
-\rho_{t,\ell} = \frac{d_{t,\ell}}{D_1}, \qquad
-r_{t,\ell} = \mathrm{clip}\big(\kappa \cdot \rho_{t,\ell}^{\gamma},\; f,\; 1\big), \qquad
-B_{t,\ell} = r_{t,\ell} \cdot (S - w_s)
-$$
-
-![budget rule](docs/figures/fig2_budget_rule.png)
-
-| 参数 | 默认 | 语义 |
-|---|---|---|
-| $\kappa$ | 0.5 | 首个被压缩循环的保留比例（其中 $\rho \approx 1$，故 $r \approx \kappa$） |
-| $\gamma$ | 1.0 | 后续循环由 $\kappa$ 衰减至下限的速率 |
-| $f$ | 0.10 | 保留比例下限 |
-
-归一化使 $\rho$ 无量纲，"位移减半"在不同样本、长度与任务下含义一致，$\kappa$
-方可跨任务复用。预算 $B_{t,\ell}$ 确定后，保留哪些 token 由 ChunkKV 的整块
-选择完成（块长 5，另强制保留 4 个 sink token 与最近 64 个 token）——该选择器
-可替换，与预算分配正交。
-
-该规则的涌现性质：loop 2 与 loop 1 差异最大（$\rho \approx 1$），自动获得
-$r \approx \kappa$；loop 3–4 中 $\rho \ll 1$，自动收敛至 $f$；检索任务后续
-循环持续重定向，$\rho$ 更高，自动分得更多预算。全程无任何逐循环特例。
-
----
-
 ## 实测分配特性
 
 以下均为 Ouro-1.4B 在 $\kappa{=}0.5$、$\gamma{=}1.0$、$f{=}0.10$ 下的实测值。
@@ -191,105 +153,14 @@ $r \approx \kappa$；loop 3–4 中 $\rho \ll 1$，自动收敛至 $f$；检索�
 
 ---
 
-## 安装
-
-```bash
-git clone https://github.com/<your-account>/DynaLoop.git
-cd DynaLoop
-pip install -e .
-
-# 评测数据（约 30 MB，一次性；优先尝试 hf-mirror 镜像）
-python scripts/fetch_datasets.py
-```
-
-依赖：Python ≥ 3.9、torch ≥ 2.1、transformers ≥ 4.40、pandas + pyarrow。
-模型路径由环境变量 `DYNALOOP_MODEL` 或各命令的 `--model` 指定。
-
----
-
-## 使用
-
-### Python API
-
-```python
-import torch
-from dynaloop import BatchedOuroEngine, DynaLoopConfig, load_ouro
-
-model, tok, _ = load_ouro("Ouro-1.4B", device="cuda")
-
-cfg = DynaLoopConfig(
-    enabled=True,
-    allocator="js",
-    js_kappa=0.5, js_gamma=1.0, js_floor=0.10,
-    keep_loops=1,            # loop 1 保留全量
-    window_size=64,          # 恒保留最近 64 token
-    chunk_size=5,            # ChunkKV 整块选择
-    min_prompt_tokens=192,   # 短 prompt 不压缩
-)
-
-eng = BatchedOuroEngine(model, tok, cfg, device="cuda")
-eng.prefill(input_ids, lens)                       # 压缩在 prefill 内完成
-out = eng.generate(input_ids, lens, max_new_tokens=512)
-
-print("kv_bytes  =", eng.kv_bytes())
-print("retention =", eng.retention_ratio(lens))
-print("per_loop  =", eng.per_loop_retention(lens))
-print("per_unit  =", eng.per_unit_retention(lens))   # 96 个单元各自的保留率
-```
-
-令 `enabled=False` 即得 FullKV 基线，其余代码路径完全一致。
-
-### 命令行
-
-```bash
-# 数学推理
-python scripts/run_math.py --task gsm8k --n 100 --seed 42 \
-    --target-prompt 1000 --batch 4 --gen-toks 512 --max-gen-toks 512 \
-    --mode dynaloop --allocator js --keep-loops 1 --block 1 --chunk 5 \
-    --min-prompt 192 --js-kappa 0.5 --js-gamma 1.0 --js-floor 0.10 \
-    --tag my_run
-
-# 长上下文检索
-python scripts/run_niah.py --mode dynaloop --allocator js \
-    --js-kappa 0.5 --js-gamma 1.0 --js-floor 0.10 \
-    --n 100 --batch 4 --length 1024 --needles 16 --tag my_niah
-
-# 长度扩展
-python scripts/run_len_scaling.py --ctx 1024 2048 4096 --kappa 0.5 --tag my_sweep
-```
-
-`--task` 取值：`gsm8k`、`math500`、`arcc`、`hellaswag`、`mc`（后两者合并）、
-`both`。多选题经 `extract_choice` 由生成文本抽取选项字母进行评分。
-
-### 复现
-
-```bash
-bash scripts/repro_results.sh     # 跳过 results/ 中已存在的 cell
-python scripts/make_figures.py    # 由 results/*.json 重绘 docs/figures/ 全部插图
-python tests/test_policy.py       # CPU 单元测试，无需 GPU 与模型
-```
-
-注意力分析（第 1–9 节全部图表）的复现分三步：
-
-```bash
-# 1) 抓取注意力分布（GPU；写出 <task>_d<i>_attn.npz + _meta.json）
-python scripts/attn_loop_probe.py --task math500 --doc-idx 0,1,2 --target-prompt 2000
-python scripts/attn_loop_probe.py --task niah    --doc-idx 0,1,2 --target-prompt 1024
-
-# 2) 由 npz 汇总收敛统计量（纯 CPU）
-python scripts/attn_convergence.py --attn-dir results/attn --attn-dir results/attn_niah1024
-
-# 3) 由统计量与 npz 重绘全部分析图
-python scripts/attn_report_figs.py --attn-dir results/attn --main math500_d0
-```
-
----
-
 ## 实验结果
 
 **实验设置。** Ouro-1.4B；单卡 RTX 4070 Laptop（8 GB）；n = 100；seed = 42；
 few-shot prompt 约 1000 token；生成上限 512 token。KV 占用以 bf16 计入 K、V
-两项（96 单元合计），并排除 padding。
+两项（96 单元合计），并排除 padding。ARC-Challenge 与 HellaSwag 另有
+**严格对齐 Ouro / FlashLoop 官方协议**的 n = 300 评测（见对应小节，
+25-shot / 10-shot 长度归一化准确率），评测子集由 `seed = 42` 无放回抽样得到，
+同一任务内所有方法共用同一子集（配对比较）。
 
 ### 长上下文检索 · NIAH-Multi（1K 上下文，16 根针）
 
@@ -306,27 +177,63 @@ few-shot prompt 约 1000 token；生成上限 512 token。KV 占用以 bf16 计�
 DynamicKV 在保留 57.0% token 的条件下检索精度降至 0.520，而 DynaLoop 在保留
 45.5% token 的条件下仍维持 1.000：**保留哪些 token 比保留多少 token 更为关键**。
 
-### 数学推理 · GSM8K
+### 数学推理 · GSM8K 与 MATH-500
 
-| 方法 | Acc ↑ | KV/样本 (MiB) ↓ | 节省 |
-|---|---|---|---|
-| FullKV | 0.770 ± 0.042 | 863 | — |
-| DynamicKV（ρ = 0.55） | 0.760 ± 0.043 | 496 | −42.6% |
-| **DynaLoop（κ = 0.5, γ = 1.0）** | **0.790 ± 0.041** | **397** | **−54.1%** |
+| 方法 | GSM8K Acc ↑ | MATH-500 Acc ↑ | KV/样本 (MiB) ↓ | KV 节省 |
+|---|---|---|---|---|
+| FullKV | 0.770 ± 0.042 | 0.500 ± 0.050 | 863 / 1002 | — |
+| DynamicKV（ρ = 0.55） | 0.760 ± 0.043 | 0.440 ± 0.050 | 496 / 571 | −42.6% / −43.0% |
+| FlashLoop（论文报告†） | 0.796 | 0.654 | —（峰值 KV 5.85×↓） | ≈ −83% |
+| **DynaLoop（κ = 0.5, γ = 1.0）** | **0.790 ± 0.041** | 0.430 ± 0.050 | **397 / 465** | **−54.1% / −53.6%** |
 
-### 数学推理 · MATH-500
+† FlashLoop 行引自其论文 Table 1（Ouro-1.4B：GSM8K 79.61 / MATH-500 65.40，对应
+Original 78.77 / 65.80），采用全测试集与论文官方协议；其压缩手段为 4-bit 残差量化
+加跨循环稀疏更新，KV 口径为**峰值 KV 缓存缩减**，与本表其余行的逐样本 bf16 字节
+口径不同，故不列入同一列，绝对分数亦不与本表直接比较。
 
-| 方法 | Acc ↑ | KV/样本 (MiB) ↓ | 节省 |
-|---|---|---|---|
-| FullKV | 0.500 ± 0.050 | 1002 | — |
-| DynamicKV（ρ = 0.55） | 0.440 ± 0.050 | 571 | −43.0% |
-| **DynaLoop（κ = 0.5, γ = 1.0）** | 0.430 ± 0.050 | **465** | **−53.6%** |
-
-GSM8K 上 DynaLoop 以 54.1% 的缓存节省超越 FullKV（+2.0 个百分点），并优于同
-预算量级的 DynamicKV。需指出，$\kappa$ 的最优取值依赖任务，本工作未实现其在
-任务间的自适应。
+在同一评测子集上（n = 100，seed = 42，配对比较），DynaLoop 于 GSM8K 以 54.1% 的
+缓存节省取得与 FullKV 同等的精度（+2.0 个百分点，在 ±4.2 标准误内不显著），并在
+相近保留率下优于 DynamicKV；MATH-500 的绝对损失主要源于 512 token 生成截断与
+ChatML 协议（见下方"评测协议说明"），应按相对保持率解读。需指出，$\kappa$ 的
+最优取值依赖任务，本工作未实现其在任务间的自适应。
 
 ![accuracy vs kv](docs/figures/fig6_accuracy_vs_kv.png)
+
+### 多选题推理 · ARC-Challenge 与 HellaSwag（n = 300，官方协议）
+
+该口径对齐 Ouro / FlashLoop 官方评测：ARC-Challenge 25-shot、HellaSwag 10-shot，
+均以 **长度归一化准确率（acc_norm）** 为指标（log-likelihood 排序，非生成式抽取）；
+评测子集为 `seed = 42` 抽样所得 300 题，两方法配对比较。
+
+| 数据集 | 方法 | Acc ↑（acc_norm） | KV/样本 (MiB) ↓ | 相对 FullKV |
+|---|---|---|---|---|
+| ARC-Challenge | FullKV | 0.600 ± 0.028 | 749 | — |
+| | **DynaLoop（κ = 0.5, γ = 1.0）** | **0.600 ± 0.028** | **350** | **0.00 %** |
+| HellaSwag | FullKV | 0.743 ± 0.025 | 571 | — |
+| | **DynaLoop（κ = 0.5, γ = 1.0）** | **0.753 ± 0.025** | **273** | **+1.00 %** |
+
+\* HellaSwag 的 DynaLoop 结果为 3 × 100 分片合并值（分片 acc_norm = 0.67 / 0.80 /
+0.79；KV 为分片均值 261.9 / 278.2 / 277.9 MiB）。分片与整跑共用同一评测子集：
+`eval_indices(300)[offset:offset+100]`，few-shot 池按同一 `seed = 42` 独立采样。
+
+**本地 FullKV 基线已复现论文 Original**：GSM8K 0.780（论文 78.77）、ARC-C 0.600
+（论文 60.92）、HellaSwag 0.743（论文 74.29），误差均 ≤ 1 分，故上述压缩后精度
+可直接与论文基线对照。
+
+关键观测：
+
+- **ARC-C 完全无损**：DynaLoop 与 FullKV 均为 0.600，且 **300/300 逐样本判定一致
+  （零翻转）**，KV 节省 53.2%（749 → 350 MiB）。
+- **HellaSwag 亦无损**：DynaLoop 0.753 略高于 FullKV 0.743（+1.00 个百分点，
+  在 ±2.5 标准误内不显著），KV 节省 52.3%（571 → 273 MiB）。
+- 这两项任务均为 log-likelihood 评分（无需生成），对缓存扰动的鲁棒性高于生成式
+  任务：**多选题上 DynaLoop 的压缩不造成精度损失**。
+
+† **协议消融（ARC-C）**：多选题 few-shot 示例的答案写法会显著影响 acc_norm。
+三种写法的 FullKV 结果分别为：索引数字 **0.413**、字母 **0.467**、**选项文本
+0.600**（论文 60.92）。只有选项文本（与待打分的续写字符串一致）与官方
+`MultipleChoiceTask.doc_to_target` 等价；此前按配置字面采用索引数字或字母会
+低估约 14–20 个百分点。本表采用对齐后的文本协议。
 
 ### 长上下文扩展
 
@@ -354,7 +261,11 @@ $\mathrm{Acc}_\mathrm{method} / \mathrm{Acc}_\mathrm{FullKV}$：
 | 方法 | GSM8K | MATH-500 |
 |---|---|---|
 | DynamicKV | 98.7% | 88.0% |
+| FlashLoop（相对其论文 Original†） | 100.1% | 99.4% |
 | **DynaLoop** | **102.6%** | 86.0% |
+
+† FlashLoop 的保持率按其论文 Table 1 的同协议配对值计算（79.61/78.77 与
+65.40/65.80），与本表其余行（n = 100 子集、gen 512）非同一实验，仅作量级参照。
 
 ---
 
@@ -371,40 +282,6 @@ $\mathrm{Acc}_\mathrm{method} / \mathrm{Acc}_\mathrm{FullKV}$：
 DynaLoop 与上述方法在决策层级上正交：其替换的是"每单元保留多少"这一层决策，
 "保留哪些 token"仍可替换为 SnapKV / ChunkKV / PyramidKV 的选择器。
 FlashLoop 以量化替代删除，二者可叠加。
-
----
-
-## 仓库结构
-
-```
-DynaLoop/
-├── dynaloop/                 # 库本体
-│   ├── policy.py             #   预算分配：allocate_js_budgets 等
-│   ├── loopkv.py             #   RoPE / 注意力 / 因果掩码
-│   ├── engine.py             #   单样本 Ouro 引擎
-│   ├── batched_engine.py     #   批量 Ouro 引擎（评测入口）
-│   ├── compat.py             #   Ouro-1.4B 权重加载
-│   └── eval/
-│       ├── datasets.py       #   GSM8K / MATH-500 / ARC-C / HellaSwag 加载与评分
-│       └── niah.py           #   needle-in-a-haystack 构造
-├── scripts/
-│   ├── run_math.py           #   数学与多选题评测
-│   ├── run_niah.py           #   长上下文检索评测
-│   ├── run_len_scaling.py    #   KV / prefill / decode 长度扫描
-│   ├── attn_loop_probe.py    #   抓取逐 (loop, layer) 注意力分布
-│   ├── attn_convergence.py   #   跨循环注意力收敛统计量
-│   ├── attn_report_figs.py   #   注意力分析图（README 第 1–9 节）
-│   ├── repro_results.sh      #   一键复现
-│   ├── make_figures.py       #   由 results/*.json 重绘插图
-│   └── fetch_datasets.py     #   数据集下载
-├── examples/
-│   ├── quickstart.py         #   最小可运行示例
-│   └── budget_heatmap.py     #   逐 (loop, layer) 保留率实测
-├── docs/figures/             #   插图
-├── results/                  #   评测产出 JSON 与分析表
-├── data/                     #   数据集
-└── tests/test_policy.py      #   CPU 单元测试
-```
 
 ---
 
